@@ -23,7 +23,7 @@ module.exports = {
         client.user.setActivity(`${totalGuilds} servers :(`, {
           type: ActivityType.Listening,
         });
-      }, 1000);
+      }, 1000 * 60 * 1.5);
     });
 
     connect(process.env.MONGO_URI) || '',
