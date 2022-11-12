@@ -19,13 +19,12 @@ module.exports = {
         (acc, guildCount) => acc + guildCount,
         0
       );
+      setInterval(() => {
+        client.user.setActivity(`${totalGuilds} servers :(`, {
+          type: ActivityType.Listening,
+        });
+      }, 1000);
     });
-
-    setInterval(() => {
-      client.user.setActivity(`${totalGuilds} servers :(`, {
-        type: ActivityType.Listening,
-      });
-    }, 1000 * 60 * 5);
 
     connect(process.env.MONGO_URI) || '',
       setTimeout(() => {
