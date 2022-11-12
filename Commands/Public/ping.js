@@ -16,6 +16,7 @@ module.exports = {
       content: `API Latency: ${client.ws.ping}ms\nClient Ping: ${
         Date.now() - interaction.createdTimestamp
       }ms`,
+      ephemeral: false,
     });
   },
 };

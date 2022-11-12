@@ -14,6 +14,7 @@ module.exports = {
   execute(interaction) {
     interaction.reply({
       content: 'Made by <@598624275083034654>. Completion ETA: ~ 3 months',
+      ephemeral: false,
     });
   },
 };
