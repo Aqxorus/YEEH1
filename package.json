@@ -1,0 +1,21 @@
+{
+  "name": "yeeh1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ascii-table": "^0.0.9",
+    "chalk": "4.1.2",
+    "discord.js": "^14.6.0",
+    "dotenv": "^16.0.3",
+    "glob": "^8.0.3",
+    "mongoose": "^6.7.1",
+    "ms": "^2.1.3"
+  }
+}
