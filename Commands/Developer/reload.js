@@ -15,11 +15,15 @@ module.exports = {
     .setDescription(`<command description>`)
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
     .addSubcommand((options) =>
-      options.setName('events').setDescription('Reload your events.')
-    )
+      options
+        .setName('events')
+        .setDescription('(ONLY AVAILABLE TO THE DEVLELOPER)')
+    ) // Reloads the events
     .addSubcommand((options) =>
-      options.setName('commands').setDescription('Reload your commands.')
-    ),
+      options
+        .setName('commands')
+        .setDescription('(ONLY AVAILABLE TO THE DEVELOPER)')
+    ), // Reloads the commands
   /**
    *
    * @param {ChatInputCommandInteraction} interaction
