@@ -1,4 +1,7 @@
 # YEEH1
 
 Made by 3v4n
-# YEEH1
+
+### Credits
+
+[Kevin Foged](https://github.com/KevinFoged): for the status, serverinfo, and userinfo commands.
