@@ -6,7 +6,7 @@ const chalk = require('chalk');
 module.exports = {
   name: 'ready',
   once: true,
-  async execute(client) {
+  execute(client) {
     setInterval(() => {
       client.user.setActivity(`${client.guilds.cache.size} servers :(`, {
         type: ActivityType.Listening,
@@ -15,9 +15,9 @@ module.exports = {
 
     connect(process.env.MONGO_URI) || '',
       setTimeout(() => {
-        console.log(chalk.green('[Database] MongoDB is connected.'));
-      }, 1000 * 1),
-      console.log('The bot is ready!');
+        console.log(chalk.green('[Database] MongoDB is connected.')),
+          console.log('The bot is ready');
+      }, 1000 * 1);
     loadCommands(client);
   },
 };
