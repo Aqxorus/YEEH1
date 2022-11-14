@@ -7,24 +7,11 @@ module.exports = {
   name: 'ready',
   once: true,
   async execute(client) {
-    const promises = [
-      client.shard.fetchClientValues('guilds.cache.size'),
-      client.shard.broadcastEval((c) =>
-        c.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0)
-      ),
-    ];
-
-    Promise.all(promises).then((results) => {
-      const totalGuilds = results[0].reduce(
-        (acc, guildCount) => acc + guildCount,
-        0
-      );
-      setInterval(() => {
-        client.user.setActivity(`${totalGuilds} servers :(`, {
-          type: ActivityType.Listening,
-        });
-      }, 1000 * 60 * 1.5);
-    });
+    setInterval(() => {
+      client.user.setActivity(`${client.guilds.cache.size} servers :(`, {
+        type: ActivityType.Listening,
+      });
+    }, 1000 * 60 * 1.5);
 
     connect(process.env.MONGO_URI) || '',
       setTimeout(() => {
