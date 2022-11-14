@@ -16,7 +16,8 @@ module.exports = {
     connect(process.env.MONGO_URI) || '',
       setTimeout(() => {
         console.log(chalk.green('[Database] MongoDB is connected.'));
-      }, 1000 * 1);
+      }, 1000 * 1),
+      console.log('The bot is ready!');
     loadCommands(client);
   },
 };
