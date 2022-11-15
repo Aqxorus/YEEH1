@@ -12,7 +12,7 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName('logs')
     .setDescription('Get the logs of a user')
-    .setDefaultMemberPermissions(PermissionFlagsBits.ModerateMembers)
+    .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
     .addSubcommand((subCmd) =>
       subCmd
         .setName('notes')

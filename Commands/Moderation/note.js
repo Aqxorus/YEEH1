@@ -15,7 +15,7 @@ module.exports = {
     .setName('note')
     .setDescription('Add a note to a user')
     .setDMPermission(false)
-    .setDefaultMemberPermissions(PermissionFlagsBits.ModerateMembers)
+    .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
     .addSubcommand((subCmd) =>
       subCmd
         .setName('add')
