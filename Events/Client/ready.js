@@ -6,17 +6,25 @@ const chalk = require('chalk');
 module.exports = {
   name: 'ready',
   once: true,
-  execute(client) {
+  async execute(client) {
     setInterval(() => {
       client.user.setActivity(`${client.guilds.cache.size} servers :(`, {
         type: ActivityType.Listening,
       });
     }, 1000 * 60 * 1.5);
 
-    connect(process.env.MONGO_URI) || '',
-      setTimeout(() => {
-        console.log(chalk.green('[Database] MongoDB is connected.'));
-      }, 1000 * 1);
+    await connect(process.env.MONGO_URI)
+      .then(() => {
+        setTimeout(() => {
+          console.log(chalk.green('[Database] MongoDB is connected.'));
+        }, 1000 * 1);
+      })
+      .catch((err) => {
+        console.log('err');
+      });
+    // setTimeout(() => {
+    //   console.log(chalk.green('[Database] MongoDB is connected.'));
+    // }, 1000 * 1);
     loadCommands(client);
   },
 };
