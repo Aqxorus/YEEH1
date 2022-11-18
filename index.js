@@ -1,8 +1,13 @@
 //  GNU General Public License v3.0 - https://www.gnu.org/licenses/gpl-3.0.en.html
 require('dotenv/config');
-const { Client, IntentsBitField, Partials, Collection } = require('discord.js');
+const {
+  Client,
+  GatewayIntentBits,
+  Partials,
+  Collection,
+} = require('discord.js');
 const { Guilds, GuildMembers, MessageContent, GuildPresences, GuildMessages } =
-  IntentsBitField.Flags;
+  GatewayIntentBits;
 const { User, Message, GuildMember, ThreadMember } = Partials;
 
 const client = new Client({
