@@ -22,9 +22,6 @@ module.exports = {
       .catch((err) => {
         console.log('err');
       });
-    // setTimeout(() => {
-    //   console.log(chalk.green('[Database] MongoDB is connected.'));
-    // }, 1000 * 1);
     loadCommands(client);
   },
 };
