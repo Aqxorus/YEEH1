@@ -1,6 +1,8 @@
 const {
   ChatInputCommandInteraction,
   SlashCommandBuilder,
+  EmbedBuilder,
+  Client,
 } = require('discord.js');
 
 module.exports = {
@@ -10,12 +12,21 @@ module.exports = {
   /**
    *
    * @param {ChatInputCommandInteraction} interaction
+   * @param {Client} client
    */
   execute(interaction, client) {
+    const { createdTimestamp } = interaction;
+
     interaction.reply({
-      content: `API Latency: ${client.ws.ping}ms\nClient Ping: ${
-        Date.now() - interaction.createdTimestamp
-      }ms`,
+      embeds: [
+        new EmbedBuilder()
+          .setColor('Aqua')
+          .setDescription(
+            `API Latency: ${client.ws.ping}ms\nClient Ping: ${
+              Date.now() - createdTimestamp
+            }ms`
+          ),
+      ],
       ephemeral: false,
     });
   },

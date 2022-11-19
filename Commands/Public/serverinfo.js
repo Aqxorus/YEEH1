@@ -76,7 +76,7 @@ module.exports = {
     interaction.reply({
       embeds: [
         new EmbedBuilder()
-          .setColor(members.me.roles.highest.hexColor)
+          .setColor('Aqua')
           .setTitle(`${guild.name}'s Information`)
           .setThumbnail(guild.iconURL({ size: 1024 }))
           .setImage(guild.bannerURL({ size: 1024 }))

@@ -3,6 +3,7 @@ const {
   SlashCommandBuilder,
   PermissionFlagsBits,
   Client,
+  EmbedBuilder,
 } = require('discord.js');
 
 const { loadCommands } = require('../../Handlers/commandHandler');
@@ -39,7 +40,12 @@ module.exports = {
             client.removeListener(`${key}`, value, true);
           loadEvents(client);
           interaction.reply({
-            content: 'Reloaded Events.',
+            embeds: [
+              new EmbedBuilder()
+                .setColor('Green')
+                .setDescription('Reloaded Events.'),
+            ],
+            // content: 'Reloaded Events.', - standard message replies
             ephemeral: true,
           });
         }
@@ -48,7 +54,12 @@ module.exports = {
         {
           loadCommands(client);
           interaction.reply({
-            content: 'Reloaded Commands.',
+            embeds: [
+              new EmbedBuilder()
+                .setColor('Green')
+                .setDescription('Reloaded Commands.'),
+            ],
+            // content: 'Reloaded Commands.', - standard message replies
             ephemeral: true,
           });
         }

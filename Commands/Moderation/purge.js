@@ -77,7 +77,10 @@ module.exports = {
         .join('\n')}`;
 
       const msg = await interaction.reply({
-        content: `${finalResult}`,
+        embeds: [
+          new EmbedBuilder().setColor('Green').setDescription(`${finalResult}`),
+        ],
+        // content: `${finalResult}`, - standard message replies
         fetchReply: true,
       });
       setTimeout(() => {

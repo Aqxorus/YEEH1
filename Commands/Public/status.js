@@ -39,7 +39,7 @@ module.exports = {
     interaction.reply({
       embeds: [
         new EmbedBuilder()
-          .setColor(interaction.guild.members.me.roles.highest.hexColor)
+          .setColor('Aqua')
           .setTitle(`${client.user.username}'s Status`)
           .setThumbnail(client.user.displayAvatarURL({ size: 1024 }))
           .addFields(

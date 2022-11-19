@@ -1,6 +1,8 @@
 const {
   ChatInputCommandInteraction,
   SlashCommandBuilder,
+  EmbedBuilder,
+  Client,
 } = require('discord.js');
 
 module.exports = {
@@ -10,10 +12,15 @@ module.exports = {
   /**
    *
    * @param {ChatInputCommandInteraction} interaction
+   * @param {Client} client
    */
-  execute(interaction) {
+  execute(interaction, client) {
     interaction.reply({
-      content: 'Made by <@598624275083034654>. Completion ETA: ~ 3 months',
+      embeds: [
+        new EmbedBuilder()
+          .setColor('Aqua')
+          .setDescription('Created by <@598624275083034654>'),
+      ],
       ephemeral: false,
     });
   },
