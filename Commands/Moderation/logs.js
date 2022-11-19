@@ -5,7 +5,6 @@ const {
   EmbedBuilder,
   PermissionFlagsBits,
 } = require('discord.js');
-
 const noteSchema = require('../../Schemas/noteSchema'); // change this to your path
 
 module.exports = {
@@ -31,7 +30,6 @@ module.exports = {
             .setMaxValue(20);
         })
     ),
-
   /**
    *
    * @param {ChatInputCommandInteraction} interaction

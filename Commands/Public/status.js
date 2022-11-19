@@ -9,7 +9,6 @@ const {
   ChannelType,
   version,
 } = require('discord.js');
-
 const { connection } = require('mongoose');
 const os = require('os');
 

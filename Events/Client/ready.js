@@ -1,5 +1,5 @@
 const { ActivityType } = require('discord.js');
-const { connect } = require('mongoose');
+const { connect, connection } = require('mongoose');
 const { loadCommands } = require('../../Handlers/commandHandler');
 const chalk = require('chalk');
 
@@ -13,10 +13,16 @@ module.exports = {
       });
     }, 1000 * 60 * 1.5);
 
+    const status = ['Disconnected', 'Connected', 'Connecting', 'Disconnecting'];
+
     await connect(process.env.MONGO_URI)
       .then(() => {
         setTimeout(() => {
-          console.log(chalk.green('[Database] MongoDB is connected'));
+          console.log(
+            chalk.green(
+              `[Database] MongoDB is ${status[connection.readyState]}`
+            )
+          );
         }, 1000 * 1);
       })
       .catch((err) => {

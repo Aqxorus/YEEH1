@@ -1,6 +1,5 @@
 //  GNU General Public License v3.0 - https://www.gnu.org/licenses/gpl-3.0.en.html
 //  Developed by Kevin Foged, 29th of September 2022 - https://github.com/KevinFoged
-
 const {
   SlashCommandBuilder,
   ChatInputCommandInteraction,
