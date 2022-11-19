@@ -26,7 +26,7 @@ module.exports = {
         }, 1000 * 1);
       })
       .catch((err) => {
-        console.log('err');
+        console.log(err);
       });
     loadCommands(client);
   },
