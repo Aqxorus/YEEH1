@@ -105,7 +105,7 @@ module.exports = {
     interaction.reply({
       embeds: [
         new EmbedBuilder()
-          .setColor('Aqua')
+          .setColor('Random')
           .setAuthor({
             name: user.tag,
             iconURL: `https://i.imgur.com/${

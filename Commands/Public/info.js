@@ -18,7 +18,7 @@ module.exports = {
     interaction.reply({
       embeds: [
         new EmbedBuilder()
-          .setColor('Aqua')
+          .setColor('Random')
           .setDescription('Created by <@598624275083034654>'),
       ],
       ephemeral: false,

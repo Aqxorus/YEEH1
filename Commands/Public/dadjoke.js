@@ -13,8 +13,8 @@ module.exports = {
       let data = await response.text();
       const img = JSON.parse(data);
       const embed = new EmbedBuilder()
+        .setColor('Random')
         .setFooter({ text: `Dad jokes  -  (icanhazdadjoke.com)` })
-        .setColor('Aqua')
         .setDescription(img.attachments[0].text);
       await interaction.reply({ embeds: [embed] });
     } catch (error) {
