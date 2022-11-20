@@ -2,7 +2,7 @@
 
 Made by 3v4n
 
-### Credits
+## Credits
 
 [Kevin Foged](https://github.com/KevinFoged): for the status, serverinfo, and userinfo commands.
 
