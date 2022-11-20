@@ -14,19 +14,21 @@ module.exports = {
    * @param {ChatInputCommandInteraction} interaction
    * @param {Client} client
    */
-  execute(interaction, client) {
-    const { createdTimestamp } = interaction;
+  async execute(interaction, client) {
+    const message = await interaction.deferReply({
+      fetchReply: true,
+    });
 
-    interaction.reply({
-      embeds: [
-        new EmbedBuilder()
-          .setColor('Aqua')
-          .setDescription(
-            `API Latency: ${client.ws.ping}ms\nClient Ping: ${
-              Date.now() - createdTimestamp
-            }ms`
-          ),
-      ],
+    const newEmbed = new EmbedBuilder()
+      .setColor('Aqua')
+      .setDescription(
+        `API Latency: ${client.ws.ping}ms\nClient Ping: ${
+          message.createdTimestamp - interaction.createdTimestamp
+        }ms`
+      );
+
+    await interaction.editReply({
+      embeds: [newEmbed],
       ephemeral: false,
     });
   },
