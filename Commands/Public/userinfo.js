@@ -11,7 +11,7 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName('userinfo')
     .setDescription(
-      'Displays the available information about the specified target'
+      'Displays the available information about the stated target.'
     )
     .addUserOption((options) =>
       options.setName('target').setDescription('Select the target.')

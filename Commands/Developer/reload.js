@@ -13,7 +13,7 @@ module.exports = {
   developer: true,
   data: new SlashCommandBuilder()
     .setName('reload')
-    .setDescription(`<command description>`)
+    .setDescription(`Reloads the events/commands.`)
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
     .addSubcommand((options) =>
       options

@@ -14,7 +14,7 @@ module.exports = {
     .addSubcommand((subcommand) =>
       subcommand
         .setName('all')
-        .setDescription('Remove all types of messages.')
+        .setDescription('Removes all types of messages.')
         .addIntegerOption((options) =>
           options
             .setName('count')

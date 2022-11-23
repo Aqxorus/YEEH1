@@ -25,7 +25,9 @@ module.exports = {
         .addIntegerOption((option) => {
           return option
             .setName('page')
-            .setDescription('The page to display if there are more than 1')
+            .setDescription(
+              'The number of pages to display if there are more than 1'
+            )
             .setMinValue(2)
             .setMaxValue(20);
         })

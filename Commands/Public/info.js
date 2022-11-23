@@ -8,7 +8,7 @@ const {
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('info')
-    .setDescription(`Info about the bot`),
+    .setDescription(`Sends info about the bot`),
   /**
    *
    * @param {ChatInputCommandInteraction} interaction

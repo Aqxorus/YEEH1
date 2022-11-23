@@ -20,7 +20,7 @@ module.exports = {
       await connect(process.env.MONGO_URI).then(() => {
         setTimeout(() => {
           console.log(
-            green(`[Database] MongoDB is ${status[connection.readyState]}`)
+            green(`[Database] MongoDB is ${status[connection.readyState]}.`)
           );
         }, 1000 * 1);
       });

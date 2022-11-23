@@ -12,13 +12,13 @@ const noteSchema = require('../../Schemas/noteSchema');
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('note')
-    .setDescription('Add a note to a user')
+    .setDescription('Adds a note to a user')
     .setDMPermission(false)
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
     .addSubcommand((subCmd) =>
       subCmd
         .setName('add')
-        .setDescription('Add a note to a user.')
+        .setDescription('Adds a note to a user.')
         .addUserOption((option) => {
           return option
             .setName('user')
@@ -36,7 +36,7 @@ module.exports = {
     .addSubcommand((subCmd) =>
       subCmd
         .setName('remove')
-        .setDescription('Remove a note from a user.')
+        .setDescription('Removes a note from a user.')
         .addStringOption((option) => {
           return option
             .setName('id')
@@ -47,7 +47,7 @@ module.exports = {
     .addSubcommand((subCmd) =>
       subCmd
         .setName('edit')
-        .setDescription('Edit a note from a user.')
+        .setDescription('Edits a note from a user.')
         .addStringOption((option) => {
           return option
             .setName('id')
@@ -57,7 +57,7 @@ module.exports = {
         .addStringOption((option) => {
           return option
             .setName('note')
-            .setDescription('The note to edit from a user.')
+            .setDescription('The notes to edit from a user.')
             .setRequired(true);
         })
     ),
