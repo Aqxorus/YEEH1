@@ -7,7 +7,7 @@ const { green } = chalk;
 module.exports = {
   name: 'ready',
   once: true,
-  async execute({ client }) {
+  async execute(client) {
     setInterval(() => {
       client.user.setActivity(`${client.guilds.cache.size} servers :(`, {
         type: ActivityType.Listening,
