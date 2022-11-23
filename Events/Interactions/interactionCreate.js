@@ -34,6 +34,9 @@ module.exports = {
       command.execute(interaction, client);
     } catch (error) {
       console.error(error);
+      console.log(
+        `[Event Handler] something went wrong while executing the interactionCreate event.`
+      );
       await interaction.reply({
         embeds: [
           new EmbedBuilder()
