@@ -86,10 +86,10 @@ module.exports = {
       return interaction.reply({
         embeds: [
           errorsEmbed.setDescription(
-            'due to an uncommon error. Cannot take negative values'
+            'Could not timeout user due to an uncommon error. Cannot take negative values'
           ),
         ],
-        ephemeral: true,
+        ephemeral: false,
       });
 
     const newInfractionsObject = {
