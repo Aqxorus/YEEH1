@@ -7,7 +7,7 @@ const {
   PermissionFlagsBits,
 } = require('discord.js');
 const { Types } = require('mongoose');
-const noteSchema = require('../../Schemas/noteSchema');
+const noteSchema = require('../../Models/noteSchema');
 
 module.exports = {
   data: new SlashCommandBuilder()

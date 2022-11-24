@@ -5,7 +5,7 @@ const {
   EmbedBuilder,
   PermissionFlagsBits,
 } = require('discord.js');
-const noteSchema = require('../../Schemas/noteSchema'); // change this to your path
+const noteSchema = require('../../Models/noteSchema');
 
 module.exports = {
   data: new SlashCommandBuilder()

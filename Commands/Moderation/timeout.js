@@ -4,7 +4,7 @@ const {
   PermissionFlagsBits,
   EmbedBuilder,
 } = require('discord.js');
-const Database = require('../../Schemas/Infractions');
+const Database = require('../../Models/Infractions');
 const ms = require('ms');
 
 module.exports = {
