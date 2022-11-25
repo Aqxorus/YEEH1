@@ -13,7 +13,7 @@ module.exports = {
     .addStringOption((options) =>
       options
         .setName('message')
-        .setDescription('The message the bot is going to say.')
+        .setDescription('The message the bot is going to say. (DEV ONLY)')
         .setRequired(true)
     ),
   /**
