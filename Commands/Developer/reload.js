@@ -16,14 +16,10 @@ module.exports = {
     .setDescription(`Reloads the events/commands.`)
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
     .addSubcommand((options) =>
-      options
-        .setName('events')
-        .setDescription('(ONLY AVAILABLE TO THE DEVLELOPER)')
+      options.setName('events').setDescription('(DEV ONLY)')
     ) // Reloads the events
     .addSubcommand((options) =>
-      options
-        .setName('commands')
-        .setDescription('(ONLY AVAILABLE TO THE DEVELOPER)')
+      options.setName('commands').setDescription('(DEV ONLY)')
     ), // Reloads the commands
   /**
    *

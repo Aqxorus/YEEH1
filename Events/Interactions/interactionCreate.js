@@ -20,7 +20,7 @@ module.exports = {
         ephemeral: true,
       });
 
-    if (command.developer && interaction.user.id !== '598624275083034654')
+    if (command.developer && interaction.user.id !== '5986242750830346541')
       return interaction.reply({
         embeds: [
           new EmbedBuilder()
