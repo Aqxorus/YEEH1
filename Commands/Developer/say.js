@@ -6,6 +6,7 @@ const {
 } = require('discord.js');
 
 module.exports = {
+  developer: true,
   data: new SlashCommandBuilder()
     .setName('say')
     .setDescription(`Says the provided text.`)
