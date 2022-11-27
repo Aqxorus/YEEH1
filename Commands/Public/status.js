@@ -54,7 +54,6 @@ module.exports = {
                 `📆 **Created** <t:${parseInt(
                   client.user.createdTimestamp / 1000
                 )}:R>`,
-                `👑 **Owner/s** <@598624275083034654>`,
                 `🏷 **Tags** ${
                   client.application.tags.length
                     ? formatter.format(
