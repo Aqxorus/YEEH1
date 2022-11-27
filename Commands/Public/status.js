@@ -54,11 +54,7 @@ module.exports = {
                 `📆 **Created** <t:${parseInt(
                   client.user.createdTimestamp / 1000
                 )}:R>`,
-                `👑 **Owner** ${
-                  client.application.owner
-                    ? `https://aqxorus.github.io`
-                    : 'None'
-                }`,
+                `👑 **Owner/s** <@598624275083034654>`,
                 `🏷 **Tags** ${
                   client.application.tags.length
                     ? formatter.format(
