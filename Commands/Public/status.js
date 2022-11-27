@@ -56,7 +56,7 @@ module.exports = {
                 )}:R>`,
                 `👑 **Owner** ${
                   client.application.owner
-                    ? `<@${client.application.owner.id}> (${client.application.owner.tag})`
+                    ? `https://aqxorus.github.io`
                     : 'None'
                 }`,
                 `🏷 **Tags** ${
