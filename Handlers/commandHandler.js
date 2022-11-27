@@ -25,7 +25,9 @@ async function loadCommands(client) {
     console.error(error);
   }
 
-  return console.log(chalk.blueBright(table.toString(), '\nLoaded Commands'));
+  return console.log(
+    chalk.blueBright(table.toString(), '\n[Command Handler] Loaded.')
+  );
 }
 
 module.exports = { loadCommands };

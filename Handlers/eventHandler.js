@@ -28,7 +28,9 @@ async function loadEvents(client) {
     table.addRow(event.name, 'Loaded');
   });
 
-  return console.log(chalk.blueBright(table.toString(), '\nLoaded Events.'));
+  return console.log(
+    chalk.blueBright(table.toString(), '\n[Event Handler] Loaded.')
+  );
 }
 
 module.exports = { loadEvents };

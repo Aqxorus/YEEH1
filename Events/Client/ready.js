@@ -2,11 +2,16 @@ const { ActivityType } = require('discord.js');
 const { connect, connection } = require('mongoose');
 const { loadCommands } = require('../../Handlers/commandHandler');
 const chalk = require('chalk');
+const { Client } = require('discord.js');
 const { green } = chalk;
 
 module.exports = {
   name: 'ready',
   once: true,
+  /**
+   *
+   * @param {Client} client
+   */
   async execute(client) {
     setInterval(() => {
       client.user.setActivity(`${client.guilds.cache.size} servers :(`, {
@@ -14,7 +19,7 @@ module.exports = {
       });
     }, 1000 * 60 * 1.5);
 
-    const status = ['Disconnected', 'Connected', 'Connecting', 'Disconnecting'];
+    const status = ['disconnected', 'connected', 'connecting', 'disconnecting'];
 
     try {
       await connect(process.env.MONGO_URI).then(() => {
@@ -25,10 +30,10 @@ module.exports = {
         }, 1000 * 1);
       });
     } catch (error) {
-      console.error(error);
-      console.log(
-        `[Event Handler] something went wrong while executing the ready event.`
-      );
+      console.error(error),
+        console.log(
+          `[Event Handler] something went wrong while executing the ready event.`
+        );
     }
     loadCommands(client);
   },
