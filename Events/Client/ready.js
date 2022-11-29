@@ -1,3 +1,5 @@
+'use strict';
+
 const { ActivityType } = require('discord.js');
 const { connect, connection } = require('mongoose');
 const { loadCommands } = require('../../Handlers/commandHandler');
@@ -7,7 +9,6 @@ const { green } = chalk;
 
 module.exports = {
   name: 'ready',
-  once: true,
   /**
    *
    * @param {Client} client

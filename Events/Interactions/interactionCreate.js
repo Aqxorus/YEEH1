@@ -1,3 +1,5 @@
+'use strict';
+
 const { ChatInputCommandInteraction, EmbedBuilder } = require('discord.js');
 
 module.exports = {
