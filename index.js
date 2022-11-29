@@ -5,8 +5,7 @@ const { Guilds, GuildMembers, MessageContent, GuildPresences, GuildMessages } =
   IntentsBitField.Flags;
 const { User, Message, GuildMember, ThreadMember } = Partials;
 
-const botIntents = new IntentsBitField();
-botIntents.add(
+const botIntents = new IntentsBitField().add(
   Guilds,
   GuildMembers,
   MessageContent,
