@@ -6,6 +6,7 @@ const { Client, Partials, IntentsBitField, Collection } = require('discord.js');
 const { Guilds, GuildMembers, MessageContent, GuildPresences, GuildMessages } =
   IntentsBitField.Flags;
 const { User, Message, GuildMember, ThreadMember } = Partials;
+const { red } = require('chalk');
 
 const botIntents = new IntentsBitField().add(
   Guilds,
@@ -27,4 +28,12 @@ client.commands = new Collection();
 
 loadEvents(client);
 
-client.login(process.env.TOKEN1);
+client.login(process.env.TOKEN1).catch((err) => {
+  console.log(`[CRASH] Something went wrong while logging in the bot` + '\n'),
+    console.error(err),
+    process.exit();
+});
+
+process.on('unhandledRejection', async (err) => {
+  console.log(red(`[CRASH] Unhandled Rejection:` + '\n')), console.error(err);
+});

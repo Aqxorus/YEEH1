@@ -3,9 +3,8 @@
 const { ActivityType } = require('discord.js');
 const { connect, connection } = require('mongoose');
 const { loadCommands } = require('../../Handlers/commandHandler');
-const chalk = require('chalk');
 const { Client } = require('discord.js');
-const { green } = chalk;
+const { green } = require('chalk');
 
 module.exports = {
   name: 'ready',
