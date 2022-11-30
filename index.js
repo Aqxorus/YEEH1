@@ -28,12 +28,17 @@ client.commands = new Collection();
 
 loadEvents(client);
 
-client.login(process.env.TOKEN1).catch((err) => {
-  console.log(`[CRASH] Something went wrong while logging in the bot` + '\n'),
-    console.error(err),
+try {
+  client.login(process.env.TOKEN1);
+} catch (error) {
+  console.log(
+    `[CRASH] Something went wrong while logging in the bot:\n${console.error(
+      err
+    )}`
+  ),
     process.exit();
-});
+}
 
 process.on('unhandledRejection', async (err) => {
-  console.log(red(`[CRASH] Unhandled Rejection:` + '\n')), console.error(err);
+  console.log(red(`[CRASH] Unhandled Rejection:\n${console.error(err)}`));
 });
