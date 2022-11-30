@@ -59,9 +59,9 @@ module.exports = {
                     ? `<@598624275083034654> (3v4n#0649)`
                     : 'None'
                 }`,
-                `<:VerifiedBot:1025804638135529532> **Verified** ${
-                  client.user.flags & UserFlags.VerifiedBot ? 'Yes' : 'No'
-                }`,
+                // `<:VerifiedBot:1025804638135529532> **Verified** ${
+                //   client.user.flags & UserFlags.VerifiedBot ? 'Yes' : 'No'
+                // }`,
                 `🏷 **Tags** ${
                   client.application.tags.length
                     ? formatter.format(
