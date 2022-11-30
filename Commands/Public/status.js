@@ -54,6 +54,14 @@ module.exports = {
                 `📆 **Created** <t:${parseInt(
                   client.user.createdTimestamp / 1000
                 )}:R>`,
+                `👑 **Owner** ${
+                  client.application.owner
+                    ? `<@598624275083034654> (3v4n#0649)`
+                    : 'None'
+                }`,
+                `<:VerifiedBot:1025804638135529532> **Verified** ${
+                  client.user.flags & UserFlags.VerifiedBot ? 'Yes' : 'No'
+                }`,
                 `🏷 **Tags** ${
                   client.application.tags.length
                     ? formatter.format(
@@ -61,7 +69,7 @@ module.exports = {
                       )
                     : 'None'
                 }`,
-                `<:clipboard:1040830928798351483> **Commands** ${client.commands.size}`,
+                `<:SupportsCommands:1025822712528121966> **Commands** ${client.commands.size}`,
               ].join('\n'),
             },
             {

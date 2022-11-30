@@ -8,17 +8,17 @@ const { Guilds, GuildMembers, MessageContent, GuildPresences, GuildMessages } =
 const { User, Message, GuildMember, ThreadMember } = Partials;
 const { red } = require('chalk');
 
-const botIntents = new IntentsBitField().add(
-  Guilds,
-  GuildMembers,
-  MessageContent,
-  GuildPresences,
-  GuildMessages
-);
-
 const client = new Client({
-  intents: botIntents,
+  intents: [
+    Guilds,
+    GuildMembers,
+    MessageContent,
+    GuildPresences,
+    GuildMessages,
+  ],
   partials: [User, Message, GuildMember, ThreadMember],
+  failIfNotExists: false,
+  allowedMentions: { parse: ['users', 'roles'], repliedUser: true },
 });
 
 const { loadEvents } = require('./Handlers/eventHandler');
