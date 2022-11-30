@@ -69,7 +69,7 @@ module.exports = {
                       )
                     : 'None'
                 }`,
-                `<:SupportsCommands:1025822712528121966> **Commands** ${client.commands.size}`,
+                `<:clipboard:1047416388660240464> **Commands** ${client.commands.size}`,
               ].join('\n'),
             },
             {
