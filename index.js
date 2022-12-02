@@ -30,7 +30,7 @@ loadEvents(client);
 
 try {
   client.login(process.env.TOKEN1);
-} catch (error) {
+} catch (err) {
   console.log(
     `[CRASH] Something went wrong while logging in the bot:\n${console.error(
       err
