@@ -1,12 +1,17 @@
 'use strict';
 
-const { ChatInputCommandInteraction, EmbedBuilder } = require('discord.js');
+const {
+  ChatInputCommandInteraction,
+  EmbedBuilder,
+  Client,
+} = require('discord.js');
 
 module.exports = {
   name: 'interactionCreate',
   /**
    *
    * @param {ChatInputCommandInteraction} interaction
+   * @param {Client} client
    */
   async execute(interaction, client) {
     if (!interaction.isChatInputCommand()) return;

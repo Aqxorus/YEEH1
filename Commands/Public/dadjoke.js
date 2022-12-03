@@ -1,5 +1,8 @@
-const { SlashCommandBuilder } = require('discord.js');
-const { EmbedBuilder } = require('discord.js');
+const {
+  SlashCommandBuilder,
+  ChatInputCommandInteraction,
+  EmbedBuilder,
+} = require('discord.js');
 import('node-fetch');
 
 module.exports = {
@@ -7,6 +10,11 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName('dadjokes')
     .setDescription('Random dadjokes from icanhazdadjoke.com'),
+  /**
+   *
+   * @param {ChatInputCommandInteraction} interaction
+   * @param {Client} client
+   */
   async execute(interaction, client) {
     try {
       let response = await fetch(`https://icanhazdadjoke.com/slack`);

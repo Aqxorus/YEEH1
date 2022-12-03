@@ -3,6 +3,7 @@ const {
   SlashCommandBuilder,
   PermissionFlagsBits,
   EmbedBuilder,
+  Client,
 } = require('discord.js');
 const Database = require('../../Models/Infractions');
 const ms = require('ms');
@@ -34,8 +35,9 @@ module.exports = {
   /**
    *
    * @param {ChatInputCommandInteraction} interaction
+   * @param {Client} client
    */
-  async execute(interaction) {
+  async execute(interaction, client) {
     const { options, guild, member } = interaction;
 
     const target = options.getMember('target');

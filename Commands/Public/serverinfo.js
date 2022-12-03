@@ -8,6 +8,7 @@ const {
   GuildVerificationLevel,
   GuildExplicitContentFilter,
   GuildNSFWLevel,
+  Client,
 } = require('discord.js');
 
 module.exports = {
@@ -16,8 +17,9 @@ module.exports = {
     .setDescription('Displays information/stats about the server'),
   /**
    * @param {ChatInputCommandInteraction} interaction
+   * @param {Client} client
    */
-  async execute(interaction) {
+  async execute(interaction, client) {
     const { guild } = interaction;
     const { members, channels, emojis, roles, stickers } = guild;
 
