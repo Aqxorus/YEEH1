@@ -1,5 +1,4 @@
 'use strict';
-
 async function loadEvents(client) {
   const { loadFiles } = require('../Functions/fileLoader');
   const ascii = require('ascii-table');

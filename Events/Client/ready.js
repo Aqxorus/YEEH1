@@ -1,5 +1,4 @@
 'use strict';
-
 const { ActivityType } = require('discord.js');
 const { connect, connection } = require('mongoose');
 const { loadCommands } = require('../../Handlers/commandHandler');

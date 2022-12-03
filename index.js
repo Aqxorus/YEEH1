@@ -29,15 +29,12 @@ loadEvents(client);
 
 try {
   client.login(process.env.TOKEN1);
-} catch (err) {
-  console.log(
-    `[CRASH] Something went wrong while logging in the bot:\n${console.error(
-      err
-    )}`
-  ),
-    process.exit();
+} catch (error) {
+  console.log(`[CRASH] Something went wrong while logging in the bot:\n`),
+    console.error(error);
+  process.exit();
 }
 
-process.on('unhandledRejection', async (err) => {
-  console.log(`[CRASH] Unhandled Rejection:\n${console.error(err)}`);
+process.on('unhandledRejection', async (reason, p) => {
+  console.error(reason, 'Unhandled Rejection at Promise', p);
 });

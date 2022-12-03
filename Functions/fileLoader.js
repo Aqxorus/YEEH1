@@ -1,5 +1,4 @@
 'use strict';
-
 const { glob } = require('glob');
 const { promisify } = require('util');
 const proGlob = promisify(glob);
