@@ -2,6 +2,8 @@ const {
   SlashCommandBuilder,
   PermissionFlagsBits,
   EmbedBuilder,
+  ChatInputCommandInteraction,
+  Client,
 } = require('discord.js');
 
 module.exports = {
@@ -53,6 +55,11 @@ module.exports = {
             .setRequired(true)
         )
     ),
+  /**
+   *
+   * @param {ChatInputCommandInteraction} interaction
+   * @param {Client} client
+   */
   async execute(interaction, client) {
     let amount = interaction.options.getInteger('count');
     if (amount >= 100) amount = 100;
@@ -78,7 +85,10 @@ module.exports = {
 
       const msg = await interaction.reply({
         embeds: [
-          new EmbedBuilder().setColor('Green').setDescription(`${finalResult}`),
+          new EmbedBuilder()
+            .setColor('Green')
+            .setDescription(`${finalResult}`)
+            .setFooter({ text: 'Deleting message in 5 seconds...' }),
         ],
         // content: `${finalResult}`, - standard message replies
         fetchReply: true,
