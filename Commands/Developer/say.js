@@ -1,8 +1,8 @@
 const {
   ChatInputCommandInteraction,
   SlashCommandBuilder,
-  EmbedBuilder,
   Client,
+  PermissionFlagsBits,
 } = require('discord.js');
 
 module.exports = {
@@ -10,6 +10,7 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName('say')
     .setDescription(`Says the provided text.`)
+    .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
     .addStringOption((options) =>
       options
         .setName('message')
@@ -22,19 +23,15 @@ module.exports = {
    * @param {Client} client
    */
   async execute(interaction, client) {
-    const { options } = interaction;
+    const message = interaction.options.getString('message');
 
-    const message = options.getString('message');
+    await interaction.deferReply({
+      fetchReply: true,
+    });
 
-    if (!message)
-      return interaction.reply({
-        content: 'Please add a message.',
-        ephemeral: true,
-      });
+    if (!message) return;
     else {
-      interaction.reply({
-        content: `${message}`,
-      });
+      await interaction.editReply(message);
     }
   },
 };

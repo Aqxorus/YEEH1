@@ -20,7 +20,7 @@ module.exports = {
    * @param {ChatInputCommandInteraction} interaction
    * @param {Client} client
    */
-  async execute(interaction) {
+  async execute(interaction, client) {
     const target =
       interaction.options.getMember('target') || interaction.member;
     const { user, presence, roles } = target;
@@ -106,7 +106,7 @@ module.exports = {
     interaction.reply({
       embeds: [
         new EmbedBuilder()
-          .setColor('Random')
+          .setColor(client.color)
           .setAuthor({
             name: user.tag,
             iconURL: `https://i.imgur.com/${

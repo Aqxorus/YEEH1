@@ -38,7 +38,7 @@ module.exports = {
     interaction.reply({
       embeds: [
         new EmbedBuilder()
-          .setColor('Random')
+          .setColor(client.color)
           .setTitle(`${client.user.username}'s Status`)
           .setThumbnail(client.user.displayAvatarURL({ size: 1024 }))
           .addFields(

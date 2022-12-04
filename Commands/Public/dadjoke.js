@@ -21,7 +21,7 @@ module.exports = {
       let data = await response.text();
       const img = JSON.parse(data);
       const embed = new EmbedBuilder()
-        .setColor('Random')
+        .setColor(client.color)
         .setFooter({ text: `Dad jokes  -  (icanhazdadjoke.com)` })
         .setDescription(img.attachments[0].text);
       await interaction.reply({ embeds: [embed] });

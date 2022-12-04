@@ -27,13 +27,10 @@ client.color = "'Random'";
 
 loadEvents(client);
 
-try {
-  client.login(process.env.TOKEN1);
-} catch (error) {
-  console.log(`[CRASH] Something went wrong while logging in the bot:\n`),
-    console.error(error);
-  process.exit();
-}
+client.login(process.env.TOKEN1).catch(async (err) => {
+  console.error(`Something happened while logging in the client:`, err),
+    process.exit(1);
+});
 
 process.on('unhandledRejection', async (reason, p) => {
   console.error(reason, 'Unhandled Rejection at Promise', p);
