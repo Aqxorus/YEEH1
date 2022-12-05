@@ -16,17 +16,16 @@ module.exports = {
       client.user.setActivity(`${client.guilds.cache.size} servers :(`, {
         type: ActivityType.Listening,
       });
-    }, 1000 * 60 * 1.5);
+    }, 1000 * 60 * 1.5); // Updates every 1.5 minutes
 
     const status = ['disconnected', 'connected', 'connecting', 'disconnecting'];
 
     try {
-      await connect(process.env.MONGO_URI).then(() => {
+      await connect(client.config.mongoUri).then(() => {
         setTimeout(() => {
           console.log(
             green(`[Database] MongoDB is ${status[connection.readyState]}`)
-          ),
-            console.log(blue(`Logged in as ${client.user.tag}`));
+          );
         }, 1000 * 1);
       });
     } catch (error) {
