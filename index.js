@@ -33,6 +33,6 @@ client.login(client.config.token1).catch(async (err) => {
     process.exit(1);
 });
 
-process.on('unhandledRejection', async (reason, p) => {
-  console.error(reason, 'Unhandled Rejection at Promise', p);
+process.on('unhandledRejection', async (p) => {
+  console.error('Unhandled Rejection at Promise\n', p);
 });
