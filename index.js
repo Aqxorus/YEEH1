@@ -15,7 +15,7 @@ const client = new Client({
   ],
   partials: [User, Message, GuildMember, ThreadMember],
   failIfNotExists: false,
-  allowedMentions: { parse: ['users', 'roles'], repliedUser: true },
+  allowedMentions: { parse: ['users', 'roles', 'everyone'], repliedUser: true },
 });
 
 client.config = require('./config.json');
