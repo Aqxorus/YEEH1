@@ -24,7 +24,6 @@ const { loadEvents } = require('./Handlers/eventHandler');
 
 client.events = new Collection();
 client.commands = new Collection();
-client.color = "'Random'";
 
 loadEvents(client);
 
