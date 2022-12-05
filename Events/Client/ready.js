@@ -3,7 +3,7 @@ const { ActivityType } = require('discord.js');
 const { connect, connection } = require('mongoose');
 const { loadCommands } = require('../../Handlers/commandHandler');
 const { Client } = require('discord.js');
-const { green, blue } = require('chalk');
+const { green } = require('chalk');
 
 module.exports = {
   name: 'ready',

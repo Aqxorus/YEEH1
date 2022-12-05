@@ -25,13 +25,8 @@ module.exports = {
   async execute(interaction, client) {
     const message = interaction.options.getString('message');
 
-    await interaction.deferReply({
-      fetchReply: true,
-    });
-
-    if (!message) return;
-    else {
-      await interaction.editReply(message);
-    }
+    await interaction.deferReply();
+    await interaction.deleteReply();
+    await interaction.channel.send(message);
   },
 };
