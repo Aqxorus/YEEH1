@@ -27,7 +27,7 @@ client.commands = new Collection();
 
 loadEvents(client);
 
-client.login(client.config.token1).catch(async (err) => {
+client.login(client.config.token).catch(async (err) => {
   console.error(`Something happened while logging in the client:`, err),
     process.exit(1);
 });
