@@ -25,6 +25,11 @@ module.exports = {
             text: `made by 3v4n`,
             status: 'online',
           },
+          {
+            type: ActivityType.Watching,
+            text: `${client.commands.size} commands`,
+            status: 'online',
+          },
         ];
 
         const option = Math.floor(Math.random() * options.length);
