@@ -12,11 +12,38 @@ module.exports = {
    * @param {Client} client
    */
   async execute(client) {
-    setInterval(() => {
-      client.user.setActivity(`${client.guilds.cache.size} servers :(`, {
-        type: ActivityType.Listening,
-      });
-    }, 1000 * 60 * 1.5); // Updates every 1.5 minutes
+    try {
+      client.pickPresence = async () => {
+        const options = [
+          {
+            type: ActivityType.Watching,
+            text: `${client.guilds.cache.size} servers :(`,
+            status: 'online',
+          },
+          {
+            type: ActivityType.Playing,
+            text: `made by 3v4n`,
+            status: 'online',
+          },
+        ];
+
+        const option = Math.floor(Math.random() * options.length);
+
+        client.user.setPresence({
+          activities: [
+            {
+              name: options[option].text,
+              type: options[option].type,
+            },
+          ],
+          status: options[option].status,
+        });
+      };
+
+      setInterval(client.pickPresence, 1000 * 10);
+    } catch (error) {
+      console.error(error);
+    }
 
     const status = ['disconnected', 'connected', 'connecting', 'disconnecting'];
 
