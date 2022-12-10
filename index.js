@@ -18,14 +18,15 @@ const client = new Client({
   allowedMentions: { parse: ['users', 'roles', 'everyone'], repliedUser: true },
 });
 
-client.config = require('./config.json');
+(async () => {
+  const { loadEvents } = require('./Handlers/eventHandler');
 
-const { loadEvents } = require('./Handlers/eventHandler');
+  client.config = require('./config.json');
+  client.events = new Collection();
+  client.commands = new Collection();
 
-client.events = new Collection();
-client.commands = new Collection();
-
-loadEvents(client);
+  loadEvents(client);
+})();
 
 client.login(client.config.token).catch(async (err) => {
   console.error(`Something happened while logging in the client:`, err),
