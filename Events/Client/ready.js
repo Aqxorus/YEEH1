@@ -1,6 +1,6 @@
 'use strict';
 const { ActivityType } = require('discord.js');
-const { connect, connection } = require('mongoose');
+const { connect, connection, set } = require('mongoose');
 const { loadCommands } = require('../../Handlers/commandHandler');
 const { Client } = require('discord.js');
 const { green } = require('chalk');
@@ -48,6 +48,7 @@ module.exports = {
     const status = ['disconnected', 'connected', 'connecting', 'disconnecting'];
 
     try {
+      set('strictQuery', true);
       await connect(client.config.mongoUri).then(() => {
         setTimeout(() => {
           console.log(

@@ -1,8 +1,13 @@
 //  GNU General Public License v3.0 - https://www.gnu.org/licenses/gpl-3.0.en.html
 'use strict';
-const { Client, Partials, IntentsBitField, Collection } = require('discord.js');
+const {
+  Client,
+  Partials,
+  GatewayIntentBits: gtwyIntents,
+  Collection,
+} = require('discord.js');
 const { Guilds, GuildMembers, MessageContent, GuildPresences, GuildMessages } =
-  IntentsBitField.Flags;
+  gtwyIntents;
 const { User, Message, GuildMember, ThreadMember } = Partials;
 
 const client = new Client({
