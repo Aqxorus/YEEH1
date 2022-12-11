@@ -7,12 +7,13 @@ const {
 } = require('discord.js');
 const Database = require('../../Models/Infractions');
 const ms = require('ms');
+const { GuildBan } = require('discord.js');
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName('timeout')
-    .setDescription(`Timeouts a user.`)
-    .setDefaultMemberPermissions(PermissionFlagsBits.ModerateMembers)
+    .setName('ban')
+    .setDescription(`Bans a user.`)
+    .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)
     .setDMPermission(false)
     .addUserOption((options) =>
       options
@@ -22,14 +23,8 @@ module.exports = {
     )
     .addStringOption((options) =>
       options
-        .setName('duration')
-        .setDescription('Provide a duration for this timeout. (1m, 1h, 1d)')
-        .setRequired(true)
-    )
-    .addStringOption((options) =>
-      options
         .setName('reason')
-        .setDescription('Provide a reason for this timeout.')
+        .setDescription('Provide a reason for this ban.')
         .setMaxLength(512)
     ),
   /**
@@ -41,30 +36,25 @@ module.exports = {
     const { options, guild, member } = interaction;
 
     const target = options.getMember('target');
-    const duration = options.getString('duration');
-    const reason =
-      options.getString('reason') || `Issued by ${interaction.user.tag}`;
+    const reason = options.getString('reason') || `None specified`;
 
     const errorsArray = [];
 
     const errorsEmbed = new EmbedBuilder()
       .setAuthor({
-        name: 'Could not timeout member',
+        name: 'Could not ban member',
       })
       .setColor('Red');
 
     if (!target)
       return interaction.reply({
         embeds: [
-          errorsEmbed.setDescription('Member has most likely left the server'),
+          errorsEmbed.setDescription(
+            'Because member has most likely left the server'
+          ),
         ],
         ephemeral: true,
       });
-
-    if (!ms(duration) || ms(duration) > ms('28d'))
-      errorsArray.push(
-        'Because time provided is invalid or over the 28d limit.'
-      );
 
     if (!target.manageable || !target.moderatable)
       errorsArray.push('Because the the target is not bannable');
@@ -80,19 +70,6 @@ module.exports = {
         ephemeral: true,
       });
 
-    let timeError = false;
-    await target.timeout(ms(duration), reason).catch(() => (timeError = true));
-
-    if (timeError)
-      return interaction.reply({
-        embeds: [
-          errorsEmbed.setDescription(
-            'Could not timeout user due to an uncommon error. Cannot take negative values'
-          ),
-        ],
-        ephemeral: false,
-      });
-
     const newInfractionsObject = {
       issuerId: member.id,
       issuerTag: member.user.tag,
@@ -100,7 +77,7 @@ module.exports = {
       targetTag: target.user.tag,
       reason: reason,
       date: Date.now(),
-      type: 'Timeout',
+      type: 'Ban',
     };
 
     let userData = await Database.findOne({
@@ -119,22 +96,25 @@ module.exports = {
 
     const successEmbed = new EmbedBuilder()
       .setAuthor({
-        name: 'Timeout issues',
+        name: ' issues',
         iconURL: guild.iconURL(),
       })
       .setColor('Gold')
       .setDescription(
         [
-          `${target} was issued a timeout for ${ms(ms(duration), {
-            long: true,
-          })}** by ${member}`,
+          `${target} was issued a kick **by ${member}`,
           `bringing their infractions to ${userData.infractions.length} points**.`,
-          `\nReason: ${reason}, Issued by ${interaction.user.tag}`,
+          `\nReason: ${reason}`,
         ].join('\n')
       );
 
-    return interaction.reply({
-      embeds: [successEmbed],
-    });
+    await target
+      .ban({
+        reason: `${reason}, Issued by ${interaction.user.tag}`,
+      })
+      .catch(console.error),
+      interaction.reply({
+        embeds: [successEmbed],
+      });
   },
 };
