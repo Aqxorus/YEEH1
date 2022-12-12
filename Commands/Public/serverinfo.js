@@ -9,7 +9,7 @@ const {
   GuildExplicitContentFilter,
   GuildNSFWLevel,
   Client,
-} = require('discord.js');
+} = require('discord.js')
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -20,47 +20,47 @@ module.exports = {
    * @param {Client} client
    */
   async execute(interaction, client) {
-    const { guild } = interaction;
-    const { members, channels, emojis, roles, stickers } = guild;
+    const { guild } = interaction
+    const { members, channels, emojis, roles, stickers } = guild
 
     const sortedRoles = roles.cache
       .map((role) => role)
       .slice(1, roles.cache.size)
-      .sort((a, b) => b.position - a.position);
-    const userRoles = sortedRoles.filter((role) => !role.managed);
-    const managedRoles = sortedRoles.filter((role) => role.managed);
-    const botCount = members.cache.filter((member) => member.user.bot).size;
+      .sort((a, b) => b.position - a.position)
+    const userRoles = sortedRoles.filter((role) => !role.managed)
+    const managedRoles = sortedRoles.filter((role) => role.managed)
+    const botCount = members.cache.filter((member) => member.user.bot).size
 
     const maxDisplayRoles = (roles, maxFieldLength = 1024) => {
-      let totalLength = 0;
-      const result = [];
+      let totalLength = 0
+      const result = []
 
       for (const role of roles) {
-        const roleString = `<@&${role.id}>`;
+        const roleString = `<@&${role.id}>`
 
-        if (roleString.length + totalLength > maxFieldLength) break;
+        if (roleString.length + totalLength > maxFieldLength) break
 
-        totalLength += roleString.length + 1; // +1 as it's likely we want to display them with a space between each role, which counts towards the limit.
-        result.push(roleString);
+        totalLength += roleString.length + 1 // +1 as it's likely we want to display them with a space between each role, which counts towards the limit.
+        result.push(roleString)
       }
 
-      return result.length;
-    };
+      return result.length
+    }
 
     const splitPascal = (string, separator) =>
-      string.split(/(?=[A-Z])/).join(separator);
+      string.split(/(?=[A-Z])/).join(separator)
     const toPascalCase = (string, separator = false) => {
       const pascal =
         string.charAt(0).toUpperCase() +
         string
           .slice(1)
           .toLowerCase()
-          .replace(/[^a-zA-Z0-9]+(.)/g, (match, chr) => chr.toUpperCase());
-      return separator ? splitPascal(pascal, separator) : pascal;
-    };
+          .replace(/[^a-zA-Z0-9]+(.)/g, (match, chr) => chr.toUpperCase())
+      return separator ? splitPascal(pascal, separator) : pascal
+    }
 
     const getChannelTypeSize = (type) =>
-      channels.cache.filter((channel) => type.includes(channel.type)).size;
+      channels.cache.filter((channel) => type.includes(channel.type)).size
 
     const totalChannels = getChannelTypeSize([
       ChannelType.GuildText,
@@ -72,7 +72,7 @@ module.exports = {
       ChannelType.PrivateThread,
       ChannelType.AnnouncementThread,
       ChannelType.GuildCategory,
-    ]);
+    ])
 
     interaction.reply({
       embeds: [
@@ -209,6 +209,6 @@ module.exports = {
           ),
       ],
       ephemeral: false,
-    });
+    })
   },
-};
+}

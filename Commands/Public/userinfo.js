@@ -5,7 +5,7 @@ const {
   ChatInputCommandInteraction,
   SlashCommandBuilder,
   Client,
-} = require('discord.js');
+} = require('discord.js')
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -21,22 +21,21 @@ module.exports = {
    * @param {Client} client
    */
   async execute(interaction, client) {
-    const target =
-      interaction.options.getMember('target') || interaction.member;
-    const { user, presence, roles } = target;
+    const target = interaction.options.getMember('target') || interaction.member
+    const { user, presence, roles } = target
     const formatter = new Intl.ListFormat('en-GB', {
       style: 'narrow',
       type: 'conjunction',
-    });
+    })
 
-    await user.fetch();
+    await user.fetch()
 
     const statusType = {
       idle: '1FJj7pX.png',
       dnd: 'fbLqSYv.png',
       online: 'JhW7v9d.png',
       invisible: 'dibKqth.png',
-    };
+    }
 
     const activityType = [
       '🕹 *Playing*',
@@ -45,14 +44,14 @@ module.exports = {
       '📺 *Watching*',
       '🤹🏻‍♀️ *Custom*',
       '🏆 *Competing in*',
-    ];
+    ]
 
     const clientType = [
       { name: 'desktop', text: 'Computer', emoji: '💻' },
       { name: 'mobile', text: 'Phone', emoji: '🤳🏻' },
       { name: 'web', text: 'Website', emoji: '🌍' },
       { name: 'offline', text: 'Offline', emoji: '💤' },
-    ];
+    ]
 
     const badges = {
       BugHunterLevel1: 'Bug Hunter Level 1',
@@ -67,41 +66,41 @@ module.exports = {
       Staff: 'Discord Staff',
       VerifiedBot: 'Verified Bot',
       VerifiedDeveloper: 'Verified Bot Developer',
-    };
+    }
 
     const maxDisplayRoles = (roles, maxFieldLength = 1024) => {
-      let totalLength = 0;
-      const result = [];
+      let totalLength = 0
+      const result = []
 
       for (const role of roles) {
-        const roleString = `<@&${role.id}>`;
+        const roleString = `<@&${role.id}>`
 
-        if (roleString.length + totalLength > maxFieldLength) break;
+        if (roleString.length + totalLength > maxFieldLength) break
 
-        totalLength += roleString.length + 1; // +1 as it's likely we want to display them with a space between each role, which counts towards the limit.
-        result.push(roleString);
+        totalLength += roleString.length + 1 // +1 as it's likely we want to display them with a space between each role, which counts towards the limit.
+        result.push(roleString)
       }
 
-      return result.length;
-    };
+      return result.length
+    }
 
     const sortedRoles = roles.cache
       .map((role) => role)
       .sort((a, b) => b.position - a.position)
-      .slice(0, roles.cache.size - 1);
+      .slice(0, roles.cache.size - 1)
 
     const clientStatus =
       presence?.clientStatus instanceof Object
         ? Object.keys(presence.clientStatus)
-        : 'offline';
-    const userFlags = user.flags.toArray();
+        : 'offline'
+    const userFlags = user.flags.toArray()
 
     const deviceFilter = clientType.filter((device) =>
       clientStatus.includes(device.name)
-    );
+    )
     const devices = !Array.isArray(deviceFilter)
       ? new Array(deviceFilter)
-      : deviceFilter;
+      : deviceFilter
 
     interaction.reply({
       embeds: [
@@ -186,6 +185,6 @@ module.exports = {
           ),
       ],
       ephemeral: true,
-    });
+    })
   },
-};
+}

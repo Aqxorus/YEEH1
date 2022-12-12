@@ -3,7 +3,7 @@ const {
   SlashCommandBuilder,
   Client,
   PermissionFlagsBits,
-} = require('discord.js');
+} = require('discord.js')
 
 module.exports = {
   developer: true,
@@ -23,10 +23,10 @@ module.exports = {
    * @param {Client} client
    */
   async execute(interaction, client) {
-    const message = interaction.options.getString('message');
+    const message = interaction.options.getString('message')
 
-    await interaction.deferReply();
-    await interaction.deleteReply();
-    await interaction.channel.send(message);
+    await interaction.deferReply()
+    await interaction.deleteReply()
+    await interaction.channel.send(message)
   },
-};
+}

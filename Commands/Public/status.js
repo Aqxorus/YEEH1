@@ -8,9 +8,9 @@ const {
   Client,
   ChannelType,
   version,
-} = require('discord.js');
-const { connection } = require('mongoose');
-const os = require('os');
+} = require('discord.js')
+const { connection } = require('mongoose')
+const os = require('os')
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -24,16 +24,16 @@ module.exports = {
     const formatter = new Intl.ListFormat('en-GB', {
       style: 'long',
       type: 'conjunction',
-    });
+    })
 
-    const status = ['Disconnected', 'Connected', 'Connecting', 'Disconnecting'];
+    const status = ['Disconnected', 'Connected', 'Connecting', 'Disconnecting']
 
-    await client.user.fetch();
-    await client.application.fetch();
+    await client.user.fetch()
+    await client.application.fetch()
 
     const getChannelTypeSize = (type) =>
       client.channels.cache.filter((channel) => type.includes(channel.type))
-        .size;
+        .size
 
     interaction.reply({
       embeds: [
@@ -122,6 +122,6 @@ module.exports = {
           ),
       ],
       ephemeral: false,
-    });
+    })
   },
-};
+}

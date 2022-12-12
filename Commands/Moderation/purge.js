@@ -4,7 +4,7 @@ const {
   EmbedBuilder,
   ChatInputCommandInteraction,
   Client,
-} = require('discord.js');
+} = require('discord.js')
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -61,27 +61,27 @@ module.exports = {
    * @param {Client} client
    */
   async execute(interaction, client) {
-    let amount = interaction.options.getInteger('count');
-    if (amount >= 100) amount = 100;
-    if (amount < 1) amount = 1;
-    const fetch = await interaction.channel.messages.fetch({ limit: amount });
-    const user = interaction.options.getUser('user');
+    let amount = interaction.options.getInteger('count')
+    if (amount >= 100) amount = 100
+    if (amount < 1) amount = 1
+    const fetch = await interaction.channel.messages.fetch({ limit: amount })
+    const user = interaction.options.getUser('user')
 
     async function results(deletedMessages) {
-      const results = {};
+      const results = {}
       for (const [, deleted] of deletedMessages) {
-        const user = `${deleted.author.username}#${deleted.author.discriminator}`;
-        if (!results[user]) results[user] = 0;
-        results[user]++;
+        const user = `${deleted.author.username}#${deleted.author.discriminator}`
+        if (!results[user]) results[user] = 0
+        results[user]++
       }
 
-      const userMessageMap = Object.entries(results);
+      const userMessageMap = Object.entries(results)
 
       const finalResult = `${deletedMessages.size} message${
         deletedMessages.size > 1 ? 's' : ''
       } were removed!\n\n${userMessageMap
         .map(([user, messages]) => `**${user}** : ${messages}`)
-        .join('\n')}`;
+        .join('\n')}`
 
       const msg = await interaction.reply({
         embeds: [
@@ -92,31 +92,31 @@ module.exports = {
         ],
         // content: `${finalResult}`, - standard message replies
         fetchReply: true,
-      });
+      })
       setTimeout(() => {
-        msg.delete();
-      }, 5000);
+        msg.delete()
+      }, 5000)
     }
 
-    let filtered;
-    let deletedMessages;
+    let filtered
+    let deletedMessages
 
     switch (interaction.options.getSubcommand()) {
       case 'all':
-        deletedMessages = await interaction.channel.bulkDelete(fetch, true);
-        results(deletedMessages);
-        break;
+        deletedMessages = await interaction.channel.bulkDelete(fetch, true)
+        results(deletedMessages)
+        break
 
       case 'bot':
-        filtered = fetch.filter((m) => m.author.bot);
-        deletedMessages = await interaction.channel.bulkDelete(filtered, true);
-        results(deletedMessages);
+        filtered = fetch.filter((m) => m.author.bot)
+        deletedMessages = await interaction.channel.bulkDelete(filtered, true)
+        results(deletedMessages)
 
-        break;
+        break
       case 'user':
-        filtered = fetch.filter((m) => m.author.id === user.id);
-        deletedMessages = await interaction.channel.bulkDelete(filtered, true);
-        results(deletedMessages);
+        filtered = fetch.filter((m) => m.author.id === user.id)
+        deletedMessages = await interaction.channel.bulkDelete(filtered, true)
+        results(deletedMessages)
     }
   },
-};
+}

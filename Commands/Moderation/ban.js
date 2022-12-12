@@ -4,10 +4,10 @@ const {
   PermissionFlagsBits,
   EmbedBuilder,
   Client,
-} = require('discord.js');
-const Database = require('../../Models/Infractions');
-const ms = require('ms');
-const { GuildBan } = require('discord.js');
+} = require('discord.js')
+const Database = require('../../Models/Infractions')
+const ms = require('ms')
+const { GuildBan } = require('discord.js')
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -33,18 +33,18 @@ module.exports = {
    * @param {Client} client
    */
   async execute(interaction, client) {
-    const { options, guild, member } = interaction;
+    const { options, guild, member } = interaction
 
-    const target = options.getMember('target');
-    const reason = options.getString('reason') || `None specified`;
+    const target = options.getMember('target')
+    const reason = options.getString('reason') || `None specified`
 
-    const errorsArray = [];
+    const errorsArray = []
 
     const errorsEmbed = new EmbedBuilder()
       .setAuthor({
         name: 'Could not ban member',
       })
-      .setColor('Red');
+      .setColor('Red')
 
     if (!target)
       return interaction.reply({
@@ -54,21 +54,21 @@ module.exports = {
           ),
         ],
         ephemeral: true,
-      });
+      })
 
     if (!target.manageable || !target.moderatable)
-      errorsArray.push('Because the the target is not bannable');
+      errorsArray.push('Because the the target is not bannable')
 
     if (member.roles.highest.position < target.roles.highest.position)
       errorsArray.push(
         'Because selected member has a higher role position than you.'
-      );
+      )
 
     if (errorsArray.length)
       return interaction.reply({
         embeds: [errorsEmbed.setDescription(errorsArray.join('\n'))],
         ephemeral: true,
-      });
+      })
 
     const newInfractionsObject = {
       issuerId: member.id,
@@ -78,21 +78,20 @@ module.exports = {
       reason: reason,
       date: Date.now(),
       type: 'Ban',
-    };
+    }
 
     let userData = await Database.findOne({
       guildId: guild.id,
       userId: target.id,
-    });
+    })
     if (!userData)
       userData = await Database.create({
         guildId: guild.id,
         userId: target.id,
         infractions: [newInfractionsObject],
-      });
+      })
     else
-      userData.infractions.push(newInfractionsObject) &&
-        (await userData.save());
+      userData.infractions.push(newInfractionsObject) && (await userData.save())
 
     const successEmbed = new EmbedBuilder()
       .setAuthor({
@@ -106,7 +105,7 @@ module.exports = {
           `bringing their infractions to ${userData.infractions.length} points**.`,
           `\nReason: ${reason}`,
         ].join('\n')
-      );
+      )
 
     await target
       .ban({
@@ -115,6 +114,6 @@ module.exports = {
       .catch(console.error),
       interaction.reply({
         embeds: [successEmbed],
-      });
+      })
   },
-};
+}

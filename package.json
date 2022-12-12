@@ -1,6 +1,6 @@
 {
   "name": "yeeh1",
-  "version": "1.8.4",
+  "version": "0.9.8",
   "description": "A bot",
   "main": "index.js",
   "type": "commonjs",
@@ -9,7 +9,7 @@
     "start:dev": "nodemon index.js"
   },
   "keywords": [],
-  "author": "Aqxorus",
+  "author": "3v4n",
   "license": "AGPL-3.0-only",
   "dependencies": {
     "ascii-table": "^0.0.9",

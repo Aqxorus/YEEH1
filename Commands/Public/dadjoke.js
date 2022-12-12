@@ -2,8 +2,8 @@ const {
   SlashCommandBuilder,
   ChatInputCommandInteraction,
   EmbedBuilder,
-} = require('discord.js');
-import('node-fetch');
+} = require('discord.js')
+import('node-fetch')
 
 module.exports = {
   cooldown: 5,
@@ -17,16 +17,16 @@ module.exports = {
    */
   async execute(interaction, client) {
     try {
-      let response = await fetch(`https://icanhazdadjoke.com/slack`);
-      let data = await response.text();
-      const img = JSON.parse(data);
+      let response = await fetch(`https://icanhazdadjoke.com/slack`)
+      let data = await response.text()
+      const img = JSON.parse(data)
       const embed = new EmbedBuilder()
         .setColor('Random')
         .setFooter({ text: `Dad jokes  -  (icanhazdadjoke.com)` })
-        .setDescription(img.attachments[0].text);
-      await interaction.reply({ embeds: [embed] });
+        .setDescription(img.attachments[0].text)
+      await interaction.reply({ embeds: [embed] })
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
   },
-};
+}
