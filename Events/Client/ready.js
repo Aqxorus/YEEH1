@@ -12,7 +12,8 @@ module.exports = {
    * @param {Client} client
    */
   async execute(client) {
-    try {
+    // Status changer
+    (async () => {
       client.pickPresence = async () => {
         const options = [
           {
@@ -46,9 +47,9 @@ module.exports = {
       };
 
       setInterval(client.pickPresence, 1000 * 10);
-    } catch (error) {
-      console.error(error);
-    }
+    })().catch((err) => {
+      console.error(err);
+    });
 
     const status = ['disconnected', 'connected', 'connecting', 'disconnecting'];
 
