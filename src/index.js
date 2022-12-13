@@ -27,7 +27,7 @@ const client = new Client({
 (async () => {
   const { loadEvents } = require('./Handlers/eventHandler');
 
-  client.config = require('./config.json');
+  client.config = require('../config.json');
   client.events = new Collection();
   client.commands = new Collection();
 
