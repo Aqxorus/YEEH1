@@ -4,10 +4,10 @@ const {
   PermissionFlagsBits,
   Client,
   EmbedBuilder,
-} = require('discord.js')
+} = require('discord.js');
 
-const { loadCommands } = require('../../Handlers/commandHandler')
-const { loadEvents } = require('../../Handlers/eventHandler')
+const { loadCommands } = require('../../Handlers/commandHandler');
+const { loadEvents } = require('../../Handlers/eventHandler');
 
 module.exports = {
   developer: true,
@@ -27,14 +27,14 @@ module.exports = {
    * @param {Client} client
    */
   execute(interaction, client) {
-    const subCommand = interaction.options.getSubcommand()
+    const subCommand = interaction.options.getSubcommand();
 
     switch (subCommand) {
       case 'events':
         {
           for (const [key, value] of client.events)
-            client.removeListener(`${key}`, value, true)
-          loadEvents(client)
+            client.removeListener(`${key}`, value, true);
+          loadEvents(client);
           interaction.reply({
             embeds: [
               new EmbedBuilder()
@@ -43,12 +43,12 @@ module.exports = {
             ],
             // content: 'Reloaded Events.', - standard message replies
             ephemeral: true,
-          })
+          });
         }
-        break
+        break;
       case 'commands':
         {
-          loadCommands(client)
+          loadCommands(client);
           interaction.reply({
             embeds: [
               new EmbedBuilder()
@@ -57,9 +57,9 @@ module.exports = {
             ],
             // content: 'Reloaded Commands.', - standard message replies
             ephemeral: true,
-          })
+          });
         }
-        break
+        break;
     }
   },
-}
+};

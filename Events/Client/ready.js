@@ -1,9 +1,9 @@
-'use strict'
-const { ActivityType } = require('discord.js')
-const { connect, connection, set } = require('mongoose')
-const { loadCommands } = require('../../Handlers/commandHandler')
-const { Client } = require('discord.js')
-const { green } = require('chalk')
+'use strict';
+const { ActivityType } = require('discord.js');
+const { connect, connection, set } = require('mongoose');
+const { loadCommands } = require('../../Handlers/commandHandler');
+const { Client } = require('discord.js');
+const { green } = require('chalk');
 
 module.exports = {
   name: 'ready',
@@ -30,9 +30,9 @@ module.exports = {
             text: `${client.commands.size} commands`,
             status: 'online',
           },
-        ]
+        ];
 
-        const option = Math.floor(Math.random() * options.length)
+        const option = Math.floor(Math.random() * options.length);
 
         client.user.setPresence({
           activities: [
@@ -42,31 +42,31 @@ module.exports = {
             },
           ],
           status: options[option].status,
-        })
-      }
+        });
+      };
 
-      setInterval(client.pickPresence, 1000 * 10)
+      setInterval(client.pickPresence, 1000 * 10);
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
 
-    const status = ['disconnected', 'connected', 'connecting', 'disconnecting']
+    const status = ['disconnected', 'connected', 'connecting', 'disconnecting'];
 
     try {
-      set('strictQuery', true)
+      set('strictQuery', true);
       await connect(client.config.mongoUri).then(() => {
         setTimeout(() => {
           console.log(
             green(`[Database] MongoDB is ${status[connection.readyState]}`)
-          )
-        }, 1000 * 1)
-      })
+          );
+        }, 1000 * 1);
+      });
     } catch (error) {
       console.error(error),
         console.log(
           `[Event Handler] something went wrong while executing the ready event.`
-        )
+        );
     }
-    loadCommands(client)
+    loadCommands(client);
   },
-}
+};

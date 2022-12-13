@@ -1,5 +1,5 @@
-'use strict'
-const { model, Schema } = require('mongoose')
+'use strict';
+const { model, Schema } = require('mongoose');
 
 module.exports = model(
   'Infractions',
@@ -8,4 +8,4 @@ module.exports = model(
     userId: String,
     infractions: Array,
   })
-)
+);

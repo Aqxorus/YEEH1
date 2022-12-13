@@ -3,7 +3,7 @@ const {
   SlashCommandBuilder,
   EmbedBuilder,
   Client,
-} = require('discord.js')
+} = require('discord.js');
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -17,7 +17,7 @@ module.exports = {
   async execute(interaction, client) {
     const message = await interaction.deferReply({
       fetchReply: true,
-    })
+    });
 
     const newEmbed = new EmbedBuilder()
       .setColor('Random')
@@ -25,11 +25,11 @@ module.exports = {
         `API Latency: ${client.ws.ping}ms\nClient Ping: ${
           message.createdTimestamp - interaction.createdTimestamp
         }ms`
-      )
+      );
 
     await interaction.editReply({
       embeds: [newEmbed],
       ephemeral: false,
-    })
+    });
   },
-}
+};

@@ -1,5 +1,5 @@
-'use strict'
-const { Schema, model } = require('mongoose')
+'use strict';
+const { Schema, model } = require('mongoose');
 
 const noteSchema = new Schema({
   _id: Schema.Types.ObjectId,
@@ -8,6 +8,6 @@ const noteSchema = new Schema({
   note: String,
   moderator: String,
   noteDate: String,
-})
+});
 
-module.exports = model('notesSchema', noteSchema, 'userNotes')
+module.exports = model('notesSchema', noteSchema, 'userNotes');

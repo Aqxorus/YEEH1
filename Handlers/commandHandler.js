@@ -1,34 +1,34 @@
-'use strict'
+'use strict';
 async function loadCommands(client) {
-  const { loadFiles } = require('../Functions/fileLoader')
-  const ascii = require('ascii-table')
-  const table = new ascii().setHeading('Commands', 'Status')
-  const chalk = require('chalk')
+  const { loadFiles } = require('../Functions/fileLoader');
+  const ascii = require('ascii-table');
+  const table = new ascii().setHeading('Commands', 'Status');
+  const chalk = require('chalk');
 
-  await client.commands.clear()
+  await client.commands.clear();
 
-  let commandsArray = []
+  let commandsArray = [];
 
-  const Files = await loadFiles('Commands')
+  const Files = await loadFiles('Commands');
 
   try {
     Files.forEach((file) => {
-      const command = require(file)
-      client.commands.set(command.data.name, command)
+      const command = require(file);
+      client.commands.set(command.data.name, command);
 
-      commandsArray.push(command.data.toJSON())
+      commandsArray.push(command.data.toJSON());
 
-      table.addRow(command.data.name, 'Loaded')
-    })
+      table.addRow(command.data.name, 'Loaded');
+    });
 
-    client.application.commands.set(commandsArray)
+    client.application.commands.set(commandsArray);
   } catch (error) {
-    console.error(error)
+    console.error(error);
   }
 
   return console.log(
     chalk.blueBright(table.toString(), '\n[Command Handler] Loaded.')
-  )
+  );
 }
 
-module.exports = { loadCommands }
+module.exports = { loadCommands };
