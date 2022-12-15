@@ -9,7 +9,7 @@ module.exports = {
   developer: true,
   data: new SlashCommandBuilder()
     .setName('say')
-    .setDescription(`Says the provided text.`)
+    .setDescription(`Says the provided text. (DEV ONLY)`)
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
     .addStringOption((options) =>
       options

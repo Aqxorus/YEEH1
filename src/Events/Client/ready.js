@@ -62,8 +62,8 @@ module.exports = {
           );
         }, 1000 * 1);
       });
-    } catch (error) {
-      console.error(error),
+    } catch (err) {
+      console.error(err),
         console.log(
           `[Event Handler] something went wrong while executing the ready event.`
         );
