@@ -74,7 +74,7 @@ module.exports = {
       ChannelType.GuildCategory,
     ]);
 
-    interaction.reply({
+    await interaction.reply({
       embeds: [
         new EmbedBuilder()
           .setColor('Random')

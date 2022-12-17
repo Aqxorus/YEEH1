@@ -103,7 +103,7 @@ module.exports = {
       ? new Array(deviceFilter)
       : deviceFilter;
 
-    interaction.reply({
+    await interaction.reply({
       embeds: [
         new EmbedBuilder()
           .setColor('Random')

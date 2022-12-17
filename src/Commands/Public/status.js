@@ -35,7 +35,7 @@ module.exports = {
       client.channels.cache.filter((channel) => type.includes(channel.type))
         .size;
 
-    interaction.reply({
+    await interaction.reply({
       embeds: [
         new EmbedBuilder()
           .setColor('Random')

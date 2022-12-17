@@ -26,7 +26,7 @@ module.exports = {
         .setDescription(img.attachments[0].text);
       await interaction.reply({ embeds: [embed] });
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   },
 };
