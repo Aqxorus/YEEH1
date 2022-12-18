@@ -9,26 +9,38 @@
 
 ## Table of Contents
 
-- [Installation](#installation)
-- [API](#api)
-- [Contributing](#contributing)
-- [License](#license)
+### • [Installation](#installation)
+
+### • [API](#api)
+
+### • [License](#license)
+
+<br>
 
 ## Installation
 
-This guide will show you how to setup the bot.
+### This guide will show you how to setup the bot.
+
+<br>
+
+### Install the required dependencies
 
 ```ps
-# 1. Install the required dependencies
 pnpm install
+```
 
-# 2. Make a config.json file with these contents. (Obviously replace the content with your actual token and mongoUri.)
+### Make a config.json file with these contents. (Obviously replace the content with your actual token and mongoUri.)
+
+```json
 {
   "token": "TOKEN HERE",
   "mongoUri": "MONGO URI HERE"
 }
-# 3. Run pn start || pn start:dev to run your bot.
 ```
+
+### Run pn start || pn start:dev to run your bot.
+
+<br>
 
 ## API
 
