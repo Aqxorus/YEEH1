@@ -6,7 +6,6 @@ const {
 import('node-fetch');
 
 module.exports = {
-  cooldown: 5,
   data: new SlashCommandBuilder()
     .setName('dadjokes')
     .setDescription('Random dadjokes from icanhazdadjoke.com'),

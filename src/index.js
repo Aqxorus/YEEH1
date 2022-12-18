@@ -6,11 +6,11 @@ const {
   GatewayIntentBits: gtwyIntents,
   Collection,
 } = require('discord.js');
-const { Guilds, GuildMembers, GuildPresences } = gtwyIntents;
+const { Guilds, GuildMembers, GuildPresences, GuildMessages } = gtwyIntents;
 const { User, Message, GuildMember, ThreadMember } = Partials;
 
 const client = new Client({
-  intents: [Guilds, GuildMembers, GuildPresences],
+  intents: [Guilds, GuildMembers, GuildPresences, GuildMessages],
   partials: [User, Message, GuildMember, ThreadMember],
   failIfNotExists: false,
   allowedMentions: { parse: ['users', 'roles', 'everyone'], repliedUser: true },
@@ -26,6 +26,9 @@ const client = new Client({
   client.guildConfig = new Collection();
 
   loadEvents(client);
+
+  const { loadConfig } = require('./Functions/configLoader');
+  loadConfig(client);
 })().catch((err) => {
   console.error(err), process.exit(1);
 });
