@@ -12,6 +12,7 @@ module.exports = {
     .setName('logs')
     .setDescription('Get the logs of a user')
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
+    .setDMPermission(false)
     .addSubcommand((subCmd) =>
       subCmd
         .setName('notes')

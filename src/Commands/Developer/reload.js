@@ -15,6 +15,7 @@ module.exports = {
     .setName('reload')
     .setDescription(`Reloads the events/commands.`)
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
+    .setDMPermission(false)
     .addSubcommand((options) =>
       options.setName('events').setDescription('(DEV ONLY)')
     ) // Reloads the events

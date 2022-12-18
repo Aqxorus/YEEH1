@@ -13,6 +13,7 @@ module.exports = {
     .setDescription(
       'Displays the available information about the stated target.'
     )
+    .setDMPermission(false)
     .addUserOption((options) =>
       options.setName('target').setDescription('Select the target.')
     ),

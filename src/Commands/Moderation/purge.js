@@ -13,6 +13,7 @@ module.exports = {
       'Purge a specific amount of messages from a target or channel.'
     )
     .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages)
+    .setDMPermission(false)
     .addSubcommand((subcommand) =>
       subcommand
         .setName('all')

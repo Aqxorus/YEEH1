@@ -8,7 +8,8 @@ import('node-fetch');
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('dadjokes')
-    .setDescription('Random dadjokes from icanhazdadjoke.com'),
+    .setDescription('Random dadjokes from icanhazdadjoke.com')
+    .setDMPermission(false),
   /**
    *
    * @param {ChatInputCommandInteraction} interaction

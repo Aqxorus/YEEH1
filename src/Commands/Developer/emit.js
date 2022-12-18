@@ -11,18 +11,41 @@ module.exports = {
     .setName('emit')
     .setDescription('Emit the guildMemberAdd/Remove events.')
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
-    .setDMPermission(false),
+    .setDMPermission(false)
+    .addSubcommand((options) =>
+      options
+        .setName('guild_member_add')
+        .setDescription('emit guildMemberAdd event')
+    )
+    .addSubcommand((options) =>
+      options
+        .setName('guild_member_remove')
+        .setDescription('emit guildMemberRemove event')
+    ),
   /**
    *
    * @param {ChatInputCommandInteraction} interaction
    * @param {Client} client
    */
-  execute(interaction, client) {
-    client.emit('guildMemberAdd', interaction.member);
+  async execute(interaction, client) {
+    const subCommand = interaction.options.getSubcommand();
 
-    interaction.reply({
-      content: 'Emitted guildMemberAdd',
-      ephemeral: true,
-    });
+    switch (subCommand) {
+      case 'guild_member_add':
+        client.emit('guildMemberAdd', interaction.member);
+        await interaction.reply({
+          content: 'Emitted the guildMemberAdd event',
+          ephemeral: true,
+        });
+        break;
+
+      case 'guild_member_remove':
+        client.emit('guildMemberRemove', interaction.member);
+        await interaction.reply({
+          content: 'Emitted the guildMemberRemove event',
+          ephemeral: true,
+        });
+        break;
+    }
   },
 };

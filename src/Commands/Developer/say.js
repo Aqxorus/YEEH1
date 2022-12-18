@@ -11,6 +11,7 @@ module.exports = {
     .setName('say')
     .setDescription(`Says the provided text. (DEV ONLY)`)
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
+    .setDMPermission(false)
     .addStringOption((options) =>
       options
         .setName('message')

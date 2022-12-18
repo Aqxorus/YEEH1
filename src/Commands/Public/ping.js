@@ -8,7 +8,8 @@ const {
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('ping')
-    .setDescription(`Replies with the API's Latency + Client Ping.`),
+    .setDescription(`Replies with the API's Latency + Client Ping.`)
+    .setDMPermission(false),
   /**
    *
    * @param {ChatInputCommandInteraction} interaction
