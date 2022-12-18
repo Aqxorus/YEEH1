@@ -9,19 +9,13 @@
 
 ## Table of Contents
 
-### • [Installation](#installation)
+#### • [Installation](#installation)
 
-### • [API](#api)
+#### • [API](#api)
 
-### • [License](#license)
-
-<br>
+#### • [License](#license)
 
 ## Installation
-
-### This guide will show you how to setup the bot.
-
-<br>
 
 ### Install the required dependencies
 
@@ -39,8 +33,6 @@ pnpm install
 ```
 
 ### Run pn start || pn start:dev to run your bot.
-
-<br>
 
 ## API
 
