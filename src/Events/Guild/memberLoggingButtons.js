@@ -61,7 +61,9 @@ module.exports = {
       case 'Ban':
         {
           await member
-            .ban(`Banned by: ${interaction.user.tag} | Member Logging System`)
+            .ban({
+              reason: `Banned by: ${interaction.user.tag} | Member Logging System`,
+            })
             .then(() => {
               interaction.reply({
                 embeds: [Embed.setDescription(`${member} has been banned`)],
