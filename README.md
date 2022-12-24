@@ -2,7 +2,7 @@
 
 ![banner](https://cdn.discordapp.com/attachments/966577871579660288/1053891959091101716/Untitled_design.png)
 
-[![license](https://img.shields.io/github/license/Aqxorus/YEEH1)](LICENSE)
+[![license](https://img.shields.io/github/license/Aqxorus/YEEH1)](./LICENSE)
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
 ---
@@ -32,6 +32,24 @@ pnpm install
 }
 ```
 
+### Change the Dev ID to your Account ID
+
+### [interactionCreate.js](./src/Events/Interactions/interactionCreate.js)
+
+Change <font color='#FFFF00'>598624275083034654</font> to your discord account ID
+
+```js
+if (command.developer && interaction.user.id !== '598624275083034654')
+  return interaction.reply({
+    embeds: [
+      new EmbedBuilder()
+        .setColor('Red')
+        .setDescription('This command is only available to the developer.'),
+    ],
+    ephemeral: true,
+  });
+```
+
 ### Run pn start || pn start:dev to run your bot.
 
 ## API
@@ -44,4 +62,4 @@ Small note: If editing the Readme, please conform to the [standard-readme](https
 
 ## License
 
-[GPL-3.0 © Aqxorus](../LICENSE)
+[GPL-3.0 © Aqxorus](./LICENSE)

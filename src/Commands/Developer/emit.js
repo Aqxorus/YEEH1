@@ -1,3 +1,4 @@
+// This command is purely for testing the memberlogging system.
 const {
   SlashCommandBuilder,
   PermissionFlagsBits,

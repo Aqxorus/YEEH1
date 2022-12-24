@@ -1,3 +1,4 @@
+// Only use this if you've made a change in the bot and want to reload the commands or events without restarting the bot.
 const {
   ChatInputCommandInteraction,
   SlashCommandBuilder,

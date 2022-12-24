@@ -1,3 +1,4 @@
+// You can delete this if you want.
 const {
   ChatInputCommandInteraction,
   SlashCommandBuilder,

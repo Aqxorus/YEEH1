@@ -16,23 +16,22 @@ const client = new Client({
   allowedMentions: { parse: ['users', 'roles', 'everyone'], repliedUser: true },
 });
 
-// Loads the commands and events
-(async () => {
-  const { loadEvents } = require('./Handlers/eventHandler');
+// Loads the commands, events and logs in the client
+try {
+  (async () => {
+    const { loadEvents } = require('./Handlers/eventHandler');
+    const { loadConfig } = require('./Functions/configLoader');
 
-  client.config = require('../config.json');
-  client.events = new Collection();
-  client.commands = new Collection();
-  client.guildConfig = new Collection();
+    client.config = require('../config.json');
+    client.events = new Collection();
+    client.commands = new Collection();
+    client.guildConfig = new Collection();
 
-  loadEvents(client);
+    loadEvents(client);
+    loadConfig(client);
+  })();
+} catch (err) {
+  console.error(err);
+}
 
-  const { loadConfig } = require('./Functions/configLoader');
-  loadConfig(client);
-})().catch((err) => {
-  console.error(err), process.exit(1);
-});
-
-client.login(client.config.token).catch((err) => {
-  console.error(err), process.exit(1);
-});
+client.login(client.config.token);
