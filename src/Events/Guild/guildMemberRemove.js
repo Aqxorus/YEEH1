@@ -1,3 +1,4 @@
+'use strict';
 const { GuildMember, EmbedBuilder } = require('discord.js');
 const moment = require('moment');
 

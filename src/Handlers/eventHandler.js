@@ -23,8 +23,8 @@ async function loadEvents(client) {
         if (event.once) client.once(event.name, execute);
         else client.on(event.name, execute);
       }
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      console.error(err);
     }
     table.addRow(event.name, 'Loaded');
   });

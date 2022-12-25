@@ -1,3 +1,4 @@
+'use strict';
 const { ButtonInteraction, EmbedBuilder } = require('discord.js');
 
 module.exports = {
