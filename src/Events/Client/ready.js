@@ -47,27 +47,19 @@ module.exports = {
       };
 
       setInterval(client.pickPresence, 1000 * 10);
-    })().catch((err) => {
-      console.error(err);
-    });
+    })().catch(console.error);
 
     const status = ['disconnected', 'connected', 'connecting', 'disconnecting'];
 
-    try {
-      set('strictQuery', true);
-      await connect(client.config.mongoUri).then(() => {
-        setTimeout(() => {
-          console.log(
-            green(`[Database] MongoDB is ${status[connection.readyState]}`)
-          );
-        }, 1000 * 1);
-      });
-    } catch (err) {
-      console.error(err),
+    set('strictQuery', true);
+    await connect(client.config.mongoUri).then(() => {
+      setTimeout(() => {
         console.log(
-          `[Event Handler] something went wrong while executing the ready event.`
+          green(`[Database] MongoDB is ${status[connection.readyState]}`)
         );
-    }
-    loadCommands(client);
+      }, 1000 * 1);
+    });
+
+    await loadCommands(client);
   },
 };

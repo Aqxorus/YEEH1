@@ -3,7 +3,6 @@ const {
   ChatInputCommandInteraction,
   EmbedBuilder,
 } = require('discord.js');
-import('node-fetch');
 
 module.exports = {
   data: new SlashCommandBuilder()
