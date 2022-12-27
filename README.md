@@ -34,9 +34,7 @@ pnpm install
 
 ### Change the Dev ID to your Account ID
 
-### [interactionCreate.js](./src/Events/Interactions/interactionCreate.js)
-
-Change <font color='#FFFF00'>598624275083034654</font> to your discord account ID
+In [interactionCreate.js](./src/Events/Interactions/interactionCreate.js), change <font color='#FFFF00'>598624275083034654</font> to your discord account ID
 
 ```js
 if (command.developer && interaction.user.id !== '598624275083034654')
