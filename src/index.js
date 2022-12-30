@@ -6,11 +6,11 @@ const {
   GatewayIntentBits: gtwyIntents,
   Collection,
 } = require('discord.js');
-const { Guilds, GuildMembers, GuildPresences, GuildMessages } = gtwyIntents;
+const { Guilds, GuildMembers, GuildPresences } = gtwyIntents;
 const { User, Message, GuildMember, ThreadMember } = Partials;
 
 const client = new Client({
-  intents: [Guilds, GuildMembers, GuildPresences, GuildMessages],
+  intents: [Guilds, GuildMembers, GuildPresences],
   partials: [User, Message, GuildMember, ThreadMember],
   failIfNotExists: false,
   allowedMentions: { parse: ['users', 'roles', 'everyone'], repliedUser: true },
