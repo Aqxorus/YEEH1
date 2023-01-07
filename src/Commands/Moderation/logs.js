@@ -109,9 +109,6 @@ module.exports = {
           await interaction.reply({ embeds: [embed] });
         }
         break;
-
-      default:
-        break;
     }
   },
 };

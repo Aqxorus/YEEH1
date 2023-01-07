@@ -22,8 +22,8 @@ async function loadCommands(client) {
     });
 
     client.application.commands.set(commandsArray);
-  } catch (error) {
-    console.error(error);
+  } catch (err) {
+    console.error(err);
   }
 
   return console.log(chalk.blueBright(table.toString()));

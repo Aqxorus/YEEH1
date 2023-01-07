@@ -38,11 +38,8 @@ module.exports = {
 
     try {
       command.execute(interaction, client);
-    } catch (error) {
-      console.error(error),
-        console.log(
-          `[Event Handler] something went wrong while executing the interactionCreate event.`
-        );
+    } catch (err) {
+      console.error(err);
       await interaction.reply({
         embeds: [
           new EmbedBuilder()
