@@ -17,7 +17,7 @@ const client = new Client({
 });
 
 // Loads the commands, events and log's in the client
-(async () => {
+(async function () {
   const { loadEvents } = require('./Handlers/eventHandler');
   const { loadConfig } = require('./Functions/configLoader');
 
