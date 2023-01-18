@@ -45,4 +45,4 @@ jobs:
             cd /root/YEEH1
             git pull
             pnpm install
-            pm2 start index.js
+            pm2 start src/index.js
