@@ -68,6 +68,7 @@ module.exports = {
       Staff: 'Discord Staff',
       VerifiedBot: 'Verified Bot',
       VerifiedDeveloper: 'Verified Bot Developer',
+      ActiveDeveloper: 'Active Developer',
     };
 
     const maxDisplayRoles = (roles, maxFieldLength = 1024) => {
