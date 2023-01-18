@@ -124,5 +124,6 @@ module.exports = {
       ],
       ephemeral: false,
     });
+    console.log('test');
   },
 };
