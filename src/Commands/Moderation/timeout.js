@@ -43,7 +43,8 @@ module.exports = {
     const target = options.getMember('target');
     const duration = options.getString('duration');
     const reason =
-      options.getString('reason') || `Issued by ${interaction.user.tag}`;
+      options.getString('reason') + ` | Issued by ${interaction.user.tag}` ||
+      'None specified' + ` | Issued by ${interaction.user.tag}`;
 
     const errorsArray = [];
 
@@ -129,7 +130,7 @@ module.exports = {
             long: true,
           })}** by ${member}`,
           `bringing their infractions to ${userData.infractions.length} points**.`,
-          `\nReason: ${reason}, Issued by ${interaction.user.tag}`,
+          `\nReason: ${reason}`,
         ].join('\n')
       );
 
