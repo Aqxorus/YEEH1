@@ -23,7 +23,10 @@ module.exports = {
     const { user } = target;
 
     const newEmbed = new EmbedBuilder()
-      .setAuthor({ name: `${user.tag}` })
+      .setAuthor({
+        name: `${user.tag}`,
+        iconURL: target.displayAvatarURL(),
+      })
       .setTitle(`User Avatar`)
       .setImage(user.displayAvatarURL({ size: 512 }))
       .setTimestamp();
