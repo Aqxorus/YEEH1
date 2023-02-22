@@ -37,7 +37,7 @@ module.exports = {
       });
 
     try {
-      command.execute(interaction, client);
+      await command.execute(interaction, client);
     } catch (err) {
       console.error(err);
       await interaction.reply({
@@ -45,7 +45,7 @@ module.exports = {
           new EmbedBuilder()
             .setColor('Red')
             .setDescription(
-              'Something went wrong while executing this command...'
+              'Something went wrong while executing this command'
             ),
         ],
         ephemeral: true,
