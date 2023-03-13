@@ -3,7 +3,7 @@ const { ActivityType } = require('discord.js');
 const { connect, connection, set } = require('mongoose');
 const { loadCommands } = require('../../Handlers/commandHandler');
 const { Client } = require('discord.js');
-const { green } = require('chalk');
+const chalk = require('chalk');
 
 module.exports = {
   name: 'ready',
@@ -13,7 +13,7 @@ module.exports = {
    */
   async execute(client) {
     // Status changer
-    (async () => {
+    (async function () {
       client.pickPresence = async () => {
         const options = [
           {
@@ -49,13 +49,20 @@ module.exports = {
       setInterval(client.pickPresence, 1000 * 10);
     })().catch(console.error);
 
-    const status = ['disconnected', 'connected', 'connecting', 'disconnecting'];
+    const mongoStatus = [
+      'disconnected',
+      'connected',
+      'connecting',
+      'disconnecting',
+    ];
 
     set('strictQuery', true);
     await connect(client.config.mongoUri).then(() => {
       setTimeout(() => {
         console.log(
-          green(`[Database] MongoDB is ${status[connection.readyState]}`)
+          chalk.green(
+            `[Database] MongoDB is ${mongoStatus[connection.readyState]}`
+          )
         );
       }, 1000 * 1);
     });

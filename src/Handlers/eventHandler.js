@@ -1,3 +1,4 @@
+'use strict';
 const { loadFiles } = require('../Functions/fileLoader');
 
 async function loadEvents(client) {
