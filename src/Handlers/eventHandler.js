@@ -1,5 +1,6 @@
 'use strict';
 const { loadFiles } = require('../Functions/fileLoader');
+const { blue } = require('chalk');
 
 async function loadEvents(client) {
   console.time('Events Loaded');
