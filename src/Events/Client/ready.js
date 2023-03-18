@@ -18,7 +18,7 @@ module.exports = {
         const options = [
           {
             type: ActivityType.Watching,
-            text: `${client.guilds.cache.size} servers :(`,
+            text: `${client.guilds.cache.size} servers`,
             status: 'online',
           },
           {
@@ -27,7 +27,7 @@ module.exports = {
             status: 'online',
           },
           {
-            type: ActivityType.Watching,
+            type: ActivityType.Listening,
             text: `${client.commands.size} commands`,
             status: 'online',
           },
