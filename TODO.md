@@ -1,7 +1,7 @@
 ## Todo
 
 - [ ] Add more useful commands
-  - [ ] Improve ban command
+  - [ ] Allow ban command to have length
 
 ## Done ✓
 
@@ -9,4 +9,4 @@
 - [x] Add member-logging system
 - [x] Avatar command
 - [x] Minimise the usage of unnecessary intents to improve performance
-- [x] Overhauled eventHandler and commandHandler
+- [x] Overhauled eventHandler.js and commandHandler.js
