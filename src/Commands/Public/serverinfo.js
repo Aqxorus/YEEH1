@@ -157,16 +157,16 @@ module.exports = {
                 `💬 **Text** ${getChannelTypeSize([
                   ChannelType.GuildText,
                   ChannelType.GuildForum,
-                  ChannelType.GuildNews,
+                  ChannelType.GuildAnnouncement,
                 ])}`,
                 `🎙 **Voice** ${getChannelTypeSize([
                   ChannelType.GuildVoice,
                   ChannelType.GuildStageVoice,
                 ])}`,
                 `🧵 **Threads** ${getChannelTypeSize([
-                  ChannelType.GuildPublicThread,
-                  ChannelType.GuildPrivateThread,
-                  ChannelType.GuildNewsThread,
+                  ChannelType.PublicThread,
+                  ChannelType.PrivateThread,
+                  ChannelType.AnnouncementThread,
                 ])}`,
                 `📑 **Categories** ${getChannelTypeSize([
                   ChannelType.GuildCategory,

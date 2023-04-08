@@ -10,3 +10,4 @@
 - [x] Avatar command
 - [x] Minimise the usage of unnecessary intents to improve performance
 - [x] Overhauled eventHandler.js and commandHandler.js
+- [x] Fixed commandHandler.js not reloading commands on start
