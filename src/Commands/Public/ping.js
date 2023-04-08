@@ -21,7 +21,7 @@ module.exports = {
     });
 
     const newEmbed = new EmbedBuilder()
-      .setColor('Random')
+      .setColor('Blue')
       .setDescription(
         `API Latency: ${client.ws.ping}ms\nClient Ping: ${
           message.createdTimestamp - interaction.createdTimestamp
