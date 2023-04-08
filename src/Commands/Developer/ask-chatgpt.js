@@ -56,7 +56,7 @@ module.exports = {
     switch (subCommand) {
       case 'question':
         {
-          interaction.editReply({
+          await interaction.editReply({
             content: 'Please wait while your question is being processed!',
           });
 
@@ -73,9 +73,11 @@ module.exports = {
               embeds: [
                 new EmbedBuilder()
                   .setTitle(`${question}`)
-                  .setDescription(codeBlock(response.data.choices[0].text)),
+                  .setDescription(codeBlock(response.data.choices[0].text))
+                  .setTimestamp(),
               ],
-            });
+            }),
+              interaction.channel.send(`<@${interaction.user.id}>`);
           } catch (error) {
             console.log(error);
             interaction.editReply({
@@ -98,7 +100,16 @@ module.exports = {
               size: '1024x1024', // 256x256 or 512x512 or 1024x1024
             });
 
-            interaction.editReply({ content: response.data.data[0].url });
+            interaction.editReply({
+              content: 'Content:',
+              embeds: [
+                new EmbedBuilder()
+                  .setTitle(`${image}`)
+                  .setImage(response.data.data[0].url)
+                  .setTimestamp(),
+              ],
+            }),
+              interaction.channel.send(`<@${interaction.user.id}>`);
           } catch (error) {
             console.log(error);
             interaction.editReply({
