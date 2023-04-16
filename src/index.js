@@ -16,7 +16,7 @@ const client = new Client({
   allowedMentions: { parse: ['users', 'roles', 'everyone'], repliedUser: true },
 });
 
-// Loads the commands, events and log's in the client
+// Loads the commands and events into the client
 (async function () {
   const { loadEvents } = require('./Handlers/eventHandler');
   const { loadConfig } = require('./Functions/configLoader');

@@ -62,7 +62,7 @@ module.exports = {
 
           try {
             const response = await openai.createCompletion({
-              model: 'text-davinci-003', // Most powerful model so far
+              model: 'gpt-3.5-turbo', // Chat-GPT model: gpt-3.5-turbo, Davinci model: text-davinci-003
               prompt: question,
               max_tokens: 2048, // 2048 because that's the maximum amount of characters in Discord
               temperature: 0.5,

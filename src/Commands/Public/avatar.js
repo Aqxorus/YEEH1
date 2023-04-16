@@ -28,7 +28,7 @@ module.exports = {
         iconURL: target.displayAvatarURL(),
       })
       .setTitle(`User Avatar`)
-      .setImage(user.displayAvatarURL({ size: 512 }))
+      .setImage(user.displayAvatarURL({ size: 4096 }))
       .setTimestamp();
 
     await interaction.reply({
