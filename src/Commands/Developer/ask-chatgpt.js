@@ -64,7 +64,7 @@ module.exports = {
             const response = await openai.createCompletion({
               model: 'text-davinci-003',
               prompt: question,
-              max_tokens: 2048, // 2048 because that's the maximum amount of characters in Discord
+              max_tokens: 4090, // 4096 because that's the maximum amount of characters in embeds
               temperature: 0.5,
             });
 
