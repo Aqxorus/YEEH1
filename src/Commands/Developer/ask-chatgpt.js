@@ -79,7 +79,6 @@ module.exports = {
             }),
               interaction.channel.send(`<@${interaction.user.id}>`);
           } catch (error) {
-            console.log(error);
             interaction.editReply({
               content: 'Request failed! Please try again later!',
             });
