@@ -61,3 +61,5 @@ Small note: If editing the Readme, please conform to the [standard-readme](https
 ## License
 
 [GPL-3.0 © Aqxorus](./LICENSE)
+
+##### Credit to Lyxcode for the handlers
