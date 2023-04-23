@@ -48,7 +48,7 @@ if (command.developer && interaction.user.id !== '598624275083034654')
   });
 ```
 
-### Run pn start || pn start:dev to run your bot.
+### Run pnpm start || pnpm start:dev to run your bot.
 
 ## API
 
