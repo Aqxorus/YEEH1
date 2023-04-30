@@ -1,5 +1,6 @@
 //  GNU General Public License v3.0 - https://www.gnu.org/licenses/gpl-3.0.en.html
 //  Developed by Kevin Foged, 1st of October 2022 - https://github.com/KevinFoged
+// Modified by 3v4n
 const {
   EmbedBuilder,
   ChatInputCommandInteraction,
@@ -56,8 +57,8 @@ module.exports = {
     ];
 
     const badges = {
-      BugHunterLevel1: 'Bug Hunter Level 1',
-      BugHunterLevel2: 'Bug Hunter Level 2',
+      BugHunterLevel1: '<:bugHunterLogo:1102127658311102476>',
+      BugHunterLevel2: '<:goldBugHunterLogo:1102128374811480124>',
       CertifiedModerator: 'Certified Moderator',
       HypeSquadOnlineHouse1: 'Hypesquad Bravery',
       HypeSquadOnlineHouse2: 'Hypesquad Brilliance',

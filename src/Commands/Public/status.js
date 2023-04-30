@@ -93,6 +93,7 @@ module.exports = {
                 `📚 **Database** ${status[connection.readyState]}`,
                 `👩🏻‍🔧 **Node.js** ${process.version}`,
                 `🛠 **Discord.js** ${version}`,
+                `<:nodejslogo:1102126103931404380> **Language** Javascript`,
               ].join('\n'),
               inline: true,
             },
