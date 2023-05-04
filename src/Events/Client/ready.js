@@ -14,16 +14,18 @@ module.exports = {
   async execute(client) {
     // Status changer
     (async function () {
+      const req = await client.shard.fetchClientValues('guilds.cache.size');
+      const totalGuilds = req.reduce((p, n) => p + n, 0);
+
       client.pickPresence = async () => {
         const options = [
           {
             type: ActivityType.Watching,
-            text: `${client.guilds.cache.size} servers`,
-            status: 'online',
-          },
-          {
-            type: ActivityType.Playing,
-            text: `made by 3v4n`,
+            text: `${totalGuilds} servers | Shard ${
+              Number(client?.shard?.ids) + 1
+                ? Number(client?.shard?.ids) + 1
+                : '1'
+            }`,
             status: 'online',
           },
           {

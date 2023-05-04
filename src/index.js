@@ -1,33 +1,13 @@
-//  GNU General Public License v3.0 - https://www.gnu.org/licenses/gpl-3.0.en.html
-'use strict';
-const {
-  Client,
-  Partials,
-  GatewayIntentBits: gtwyIntents,
-  Collection,
-} = require('discord.js');
-const { Guilds, GuildMembers, GuildPresences } = gtwyIntents;
-const { User, Message, GuildMember, ThreadMember } = Partials;
+const config = require('../config.json');
+const chalk = require('chalk');
+const { ShardingManager } = require('discord.js');
 
-const client = new Client({
-  intents: [Guilds, GuildMembers, GuildPresences],
-  partials: [User, Message, GuildMember, ThreadMember],
-  failIfNotExists: false,
-  allowedMentions: { parse: ['users', 'roles', 'everyone'], repliedUser: true },
+const manager = new ShardingManager('./src/bot.js', {
+  token: config.token,
 });
 
-// Loads the commands and events into the client
-(async function () {
-  const { loadEvents } = require('./Handlers/eventHandler');
-  const { loadConfig } = require('./Functions/configLoader');
+manager.on('shardCreate', (shard) =>
+  console.log(chalk.blueBright(`[Shard Manager] Launched shard ${shard.id}`))
+);
 
-  client.config = require('../config.json');
-  client.events = new Collection();
-  client.commands = new Collection();
-  client.guildConfig = new Collection();
-
-  loadEvents(client);
-  loadConfig(client);
-})();
-
-client.login(client.config.token);
+manager.spawn();
