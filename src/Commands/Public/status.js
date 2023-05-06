@@ -6,6 +6,7 @@ const {
   Client,
   ChannelType,
   version,
+  UserFlags,
 } = require('discord.js');
 const { connection } = require('mongoose');
 const os = require('os');
