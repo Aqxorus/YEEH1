@@ -9,6 +9,7 @@ const {
 } = require('discord.js');
 const { connection } = require('mongoose');
 const os = require('os');
+const pkgjson = require('../../../package.json');
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -53,14 +54,10 @@ module.exports = {
                 `📆 **Created** <t:${parseInt(
                   client.user.createdTimestamp / 1000
                 )}:R>`,
-                `👑 **Owner** ${
-                  client.application.owner
-                    ? `<@598624275083034654> (3v4n#0649)`
-                    : 'None'
+                `👑 **Owner** <@598624275083034654>`,
+                `<:verifiedBotLogo:1104361951515127850> **Verified** ${
+                  client.user.flags & UserFlags.VerifiedBot ? 'Yes' : 'No'
                 }`,
-                // `<:VerifiedBot:1025804638135529532> **Verified** ${
-                //   client.user.flags & UserFlags.VerifiedBot ? 'Yes' : 'No'
-                // }`,
                 `🏷 **Tags** ${
                   client.application.tags.length
                     ? formatter.format(
@@ -89,6 +86,7 @@ module.exports = {
                   1024
                 ).toFixed(2)}%`,
                 `📚 **Database** ${status[connection.readyState]}`,
+                `🔢 **Bot version** v${pkgjson.version}`,
                 `👩🏻‍🔧 **Node.js** ${process.version}`,
                 `🛠 **Discord.js** ${version}`,
                 `<:nodejslogo:1102126103931404380> **Language** Javascript`,
