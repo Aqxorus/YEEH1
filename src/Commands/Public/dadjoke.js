@@ -1,3 +1,4 @@
+// Gives you a dadjoke
 const {
   SlashCommandBuilder,
   ChatInputCommandInteraction,

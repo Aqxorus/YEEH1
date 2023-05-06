@@ -1,6 +1,4 @@
-//  GNU General Public License v3.0 - https://www.gnu.org/licenses/gpl-3.0.en.html
-//  Developed by Kevin Foged, 1st of October 2022 - https://github.com/KevinFoged
-
+// Displays the status of the bot and database.
 const {
   EmbedBuilder,
   SlashCommandBuilder,

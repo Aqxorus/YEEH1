@@ -1,3 +1,4 @@
+// Timeout people
 const {
   ChatInputCommandInteraction,
   SlashCommandBuilder,

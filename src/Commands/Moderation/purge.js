@@ -1,3 +1,4 @@
+// Purge people's messages
 const {
   SlashCommandBuilder,
   PermissionFlagsBits,

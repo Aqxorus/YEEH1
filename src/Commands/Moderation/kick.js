@@ -1,3 +1,4 @@
+// Kick people
 const {
   ChatInputCommandInteraction,
   SlashCommandBuilder,

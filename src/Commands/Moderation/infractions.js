@@ -1,3 +1,4 @@
+// Displays the infractions of the stated target
 const {
   ChatInputCommandInteraction,
   SlashCommandBuilder,

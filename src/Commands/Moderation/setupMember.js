@@ -1,3 +1,4 @@
+// Setups the member logging system for your server.
 const {
   SlashCommandBuilder,
   PermissionFlagsBits,

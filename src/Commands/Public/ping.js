@@ -1,3 +1,4 @@
+// Shows the bots client + websocket ping
 const {
   ChatInputCommandInteraction,
   SlashCommandBuilder,

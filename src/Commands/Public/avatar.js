@@ -1,3 +1,4 @@
+// Shows the user's avatar
 const {
   ChatInputCommandInteraction,
   SlashCommandBuilder,

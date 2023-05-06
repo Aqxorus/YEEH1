@@ -1,3 +1,4 @@
+// Ban people
 const {
   ChatInputCommandInteraction,
   SlashCommandBuilder,
