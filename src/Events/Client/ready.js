@@ -51,7 +51,7 @@ module.exports = {
       'disconnecting',
     ];
 
-    set('strictQuery', true);
+    set('strictQuery', false);
     await connect(client.config.mongoUri).then(() => {
       setTimeout(() => {
         console.log(
