@@ -7,8 +7,6 @@ const {
   Client,
 } = require('discord.js');
 const Database = require('../../Models/Infractions');
-const ms = require('ms');
-const { GuildBan } = require('discord.js');
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -107,7 +105,11 @@ module.exports = {
           `bringing their infractions to ${userData.infractions.length} points**.`,
           `\nReason: ${reason}`,
         ].join('\n')
-      );
+      )
+      .setFooter({
+        text: 'Ban',
+      })
+      .setTimestamp();
 
     await target
       .ban({

@@ -11,3 +11,4 @@
 - [x] Overhauled eventHandler.js and commandHandler.js
 - [x] Fixed commandHandler.js not reloading commands on start
 - [x] New cooldown system for commands
+- [x] Added unban command
