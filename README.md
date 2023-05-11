@@ -15,17 +15,19 @@
 
 #### • [License](#license)
 
+---
+
 ## Installation
 
-1. ### Install the required dependencies
+### 1. Install the required dependencies
 
 ```ps
 pnpm install
 ```
 
-2. ### Copy the contents inside the [config.example.json](./config.example.json) file and put in your information.
+### 2. Copy the contents inside the [config.example.json](./config.example.json) file and put in your information.
 
-3. ### Change the Dev ID to your Account ID
+### 3. Change the Dev ID to your Account ID
 
 In [interactionCreate.js](./src/Events/Interactions/interactionCreate.js), change <font color='#FFFF00'>598624275083034654</font> to your discord account ID
 
@@ -41,11 +43,17 @@ if (command.developer && interaction.user.id !== '598624275083034654')
   });
 ```
 
-4. ### Run pnpm start || pnpm start:dev to run your bot.
+This will allow you to run the developer commands which are [here](./src/Commands/Developer)
+
+### 4. Run pnpm start || pnpm start:dev to run your bot.
+
+---
 
 ## Features
 
-1. ### You can set your default cooldown for commands in your config.json file, under the 'defaultCooldown' property.
+### 1. Cooldown
+
+You can set your default cooldown for commands in your config.json file, under the 'defaultCooldown' property.
 
 ```json
 {
@@ -55,11 +63,21 @@ if (command.developer && interaction.user.id !== '598624275083034654')
 }
 ```
 
+Additionally, you can also configure the cooldown per command like this:
+
+```js
+// Example command
+module.exports = {
+  cooldown: 10, // Set the cooldown in seconds
+  name: '...',
+};
+```
+
+---
+
 ## API
 
 This bot uses the [Discord API](https://discord.com/developers/docs/reference#api-reference)
-
----
 
 Small note: If editing the Readme, please conform to the [standard-readme](https://github.com/RichardLitt/standard-readme) specification.
 
