@@ -1,7 +1,6 @@
 ## Todo
 
 - [ ] Add more useful commands
-  - [ ] Allow ban command to have length
 
 ## Done ✓
 
