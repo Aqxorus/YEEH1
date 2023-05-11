@@ -17,22 +17,15 @@
 
 ## Installation
 
-### Install the required dependencies
+1. ### Install the required dependencies
 
 ```ps
 pnpm install
 ```
 
-### Make a config.json file with these contents. (Obviously replace the content with your actual token and mongoUri.)
+2. ### Copy the contents inside the [config.example.json](./config.example.json) file and put in your information.
 
-```json
-{
-  "token": "TOKEN HERE",
-  "mongoUri": "MONGO URI HERE"
-}
-```
-
-### Change the Dev ID to your Account ID
+3. ### Change the Dev ID to your Account ID
 
 In [interactionCreate.js](./src/Events/Interactions/interactionCreate.js), change <font color='#FFFF00'>598624275083034654</font> to your discord account ID
 
@@ -48,7 +41,19 @@ if (command.developer && interaction.user.id !== '598624275083034654')
   });
 ```
 
-### Run pnpm start || pnpm start:dev to run your bot.
+4. ### Run pnpm start || pnpm start:dev to run your bot.
+
+## Features
+
+1. ### You can set your default cooldown for commands in your config.json file, under the 'defaultCooldown' property.
+
+```json
+{
+  "token": "TOKEN HERE",
+  "mongoUri": "MONGO URI HERE",
+  "defaultCooldown": 5 <--
+}
+```
 
 ## API
 

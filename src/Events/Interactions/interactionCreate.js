@@ -4,6 +4,9 @@ const {
   EmbedBuilder,
   Client,
 } = require('discord.js');
+const config = require('../../../config.json');
+
+const cooldowns = new Map();
 
 module.exports = {
   name: 'interactionCreate',
@@ -35,6 +38,40 @@ module.exports = {
         ],
         ephemeral: true,
       });
+
+    if (!cooldowns.has(command.name)) {
+      cooldowns.set(command.name, new Map());
+    }
+
+    const now = Date.now();
+    const timestamps = cooldowns.get(command.name);
+    const cooldownAmount = (command.cooldown || config.defaultCooldown) * 1000; // Convert to milliseconds
+
+    if (timestamps.has(interaction.user.id)) {
+      const expirationTime =
+        timestamps.get(interaction.user.id) + cooldownAmount;
+
+      if (now < expirationTime) {
+        const timeLeft = (expirationTime - now) / 1000;
+        return interaction.reply({
+          embeds: [
+            new EmbedBuilder()
+              .setColor('Red')
+              .setDescription(
+                `Please wait ${timeLeft.toFixed(
+                  1
+                )} seconds before using the \`${
+                  interaction.commandName
+                }\` command again.`
+              ),
+          ],
+          ephemeral: true,
+        });
+      }
+    }
+
+    timestamps.set(interaction.user.id, now);
+    setTimeout(() => timestamps.delete(interaction.user.id), cooldownAmount);
 
     try {
       await command.execute(interaction, client);
