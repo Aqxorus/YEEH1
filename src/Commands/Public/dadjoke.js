@@ -17,14 +17,18 @@ module.exports = {
    */
   async execute(interaction, client) {
     try {
+      await interaction.deferReply();
+
       let response = await fetch(`https://icanhazdadjoke.com/slack`);
       let data = await response.text();
       const img = JSON.parse(data);
+
       const embed = new EmbedBuilder()
         .setColor('Random')
         .setFooter({ text: `Dad jokes  -  (icanhazdadjoke.com)` })
         .setDescription(img.attachments[0].text);
-      await interaction.reply({ embeds: [embed] });
+
+      await interaction.editReply({ embeds: [embed] });
     } catch (error) {
       console.error(error);
     }

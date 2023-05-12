@@ -3,9 +3,9 @@ const { loadFiles } = require('../Functions/fileLoader');
 
 async function loadCommands(client) {
   console.time('Commands Loaded');
-  const commands = new Array();
 
   client.commands = new Map();
+  const commands = new Array();
 
   let commandsArray = [];
 
