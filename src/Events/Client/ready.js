@@ -3,7 +3,7 @@ const { ActivityType } = require('discord.js');
 const { connect, connection, set } = require('mongoose');
 const { loadCommands } = require('../../Handlers/commandHandler');
 const { Client } = require('discord.js');
-const chalk = require('chalk');
+const { green } = require('colorette');
 
 module.exports = {
   name: 'ready',
@@ -55,13 +55,11 @@ module.exports = {
     await connect(client.config.mongoUri).then(() => {
       setTimeout(() => {
         console.log(
-          chalk.green(
-            `[Database] MongoDB is ${mongoStatus[connection.readyState]}`
-          )
+          green(`[Database] MongoDB is ${mongoStatus[connection.readyState]}`)
         );
       }, 1000 * 1);
     });
 
-    await loadCommands(client);
+    loadCommands(client);
   },
 };

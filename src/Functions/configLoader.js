@@ -1,5 +1,5 @@
 'use strict';
-const chalk = require('chalk');
+const { greenBright } = require('colorette');
 const configDatabase = require('../Models/memberLog');
 
 async function loadConfig(client) {
@@ -11,7 +11,7 @@ async function loadConfig(client) {
     });
   });
   return console.log(
-    chalk.greenBright('[Config Loader] Loaded Config/s to the collection')
+    greenBright('[Config Loader] Loaded Config/s to the collection')
   );
 }
 
