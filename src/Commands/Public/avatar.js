@@ -12,7 +12,7 @@ module.exports = {
     .setDescription(`Shows a user's avatar`)
     .setDMPermission(false)
     .addUserOption((options) =>
-      options.setName('user').setDescription('Select the user')
+      options.setName('input').setDescription('Select the user')
     ),
   /**
    *
@@ -20,7 +20,7 @@ module.exports = {
    * @param {Client} client
    */
   async execute(interaction) {
-    const target = interaction.options.getMember('user') || interaction.member;
+    const target = interaction.options.getMember('input') || interaction.member;
     const { user } = target;
 
     const newEmbed = new EmbedBuilder()

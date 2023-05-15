@@ -4,7 +4,25 @@ const {
   ChatInputCommandInteraction,
   SlashCommandBuilder,
   Client,
+  AttachmentBuilder,
 } = require('discord.js');
+const { profileImage } = require('discord-arts');
+
+function addSuffix(number) {
+  if (number % 100 >= 11 && number % 100 <= 13) {
+    return number + 'th';
+  }
+
+  switch (number % 10) {
+    case 1:
+      return number + 'st';
+    case 2:
+      return number + 'nd';
+    case 3:
+      return number + 'rd';
+  }
+  return number + 'th';
+}
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -14,16 +32,32 @@ module.exports = {
     )
     .setDMPermission(false)
     .addUserOption((options) =>
-      options.setName('target').setDescription('Select the target.')
+      options.setName('input').setDescription('Select the user')
     ),
   /**
    * @param {ChatInputCommandInteraction} interaction
    * @param {Client} client
    */
   async execute(interaction, client) {
-    const target =
-      interaction.options.getMember('target') || interaction.member;
+    interaction.deferReply();
+
+    const target = interaction.options.getMember('input') || interaction.member;
     const { user, presence, roles } = target;
+
+    const fetchedMembers = await interaction.guild.members.fetch();
+
+    const profileBuffer = await profileImage(target.id);
+    const imageAttachment = new AttachmentBuilder(profileBuffer, {
+      name: 'profile.png',
+    });
+
+    const joinPosition =
+      Array.from(
+        fetchedMembers
+          .sort((a, b) => a.joinedTimestamp - b.joinedTimestamp)
+          .keys()
+      ).indexOf(target.id) + 1;
+
     const formatter = new Intl.ListFormat('en-GB', {
       style: 'narrow',
       type: 'conjunction',
@@ -104,18 +138,23 @@ module.exports = {
       ? new Array(deviceFilter)
       : deviceFilter;
 
-    await interaction.reply({
+    await interaction.editReply({
       embeds: [
         new EmbedBuilder()
           .setColor('Random')
+          .setDescription(
+            `${target.user.username} is the **${addSuffix(
+              joinPosition
+            )}** member of this server`
+          )
           .setAuthor({
             name: user.tag,
             iconURL: `https://i.imgur.com/${
               statusType[presence?.status || 'invisible']
             }`,
           })
-          .setThumbnail(user.avatarURL({ size: 1024 }))
-          .setImage(user.bannerURL({ size: 1024 }))
+          // .setThumbnail(user.avatarURL({ size: 1024 }))
+          .setImage('attachment://profile.png')
           .addFields(
             { name: 'ID', value: `💳 ${user.id}` },
             {
@@ -186,7 +225,7 @@ module.exports = {
             { name: 'Banner', value: user.bannerURL() ? '** **' : '🎏 None' }
           ),
       ],
-      ephemeral: true,
+      files: [imageAttachment],
     });
   },
 };

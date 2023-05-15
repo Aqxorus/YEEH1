@@ -98,14 +98,6 @@ module.exports = {
               ].join('\n'),
             },
             {
-              name: 'Features',
-              value:
-                guild.features
-                  ?.map((feature) => `- ${toPascalCase(feature, ' ')}`)
-                  ?.join('\n') || 'None',
-              inline: true,
-            },
-            {
               name: 'Security',
               value: [
                 `👀 **Explicit Filter** ${splitPascal(
