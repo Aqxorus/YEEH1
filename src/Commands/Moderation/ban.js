@@ -16,7 +16,7 @@ module.exports = {
     .setDMPermission(false)
     .addUserOption((options) =>
       options
-        .setName('target')
+        .setName('input')
         .setDescription('Select the target member.')
         .setRequired(true)
     )
@@ -34,7 +34,7 @@ module.exports = {
   async execute(interaction, client) {
     const { options, guild, member } = interaction;
 
-    const target = options.getMember('target');
+    const target = options.getMember('input');
     const reason = options.getString('reason') || `None specified`;
 
     const errorsArray = [];

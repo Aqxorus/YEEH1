@@ -15,7 +15,7 @@ module.exports = {
     .setDefaultMemberPermissions(PermissionFlagsBits.ModerateMembers)
     .addUserOption((options) =>
       options
-        .setName('target')
+        .setName('input')
         .setDescription('Select the member you would like to check.')
         .setRequired(true)
     ),
@@ -26,7 +26,7 @@ module.exports = {
   async execute(interaction, client) {
     const { options, guild, member } = interaction;
 
-    const target = options.getMember('target');
+    const target = options.getMember('input');
 
     const Infractions2 = new EmbedBuilder()
       .setAuthor({

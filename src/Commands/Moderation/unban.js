@@ -15,14 +15,14 @@ module.exports = {
     .setDMPermission(false)
     .addStringOption((options) =>
       options
-        .setName('user_id')
+        .setName('input')
         .setDescription('The ID of the user you want to unban')
         .setRequired(true)
     )
     .addStringOption((options) =>
       options
         .setName('reason')
-        .setDescription('Provide a reason for this ban.')
+        .setDescription('Provide a reason for this unban.')
         .setMaxLength(512)
     ),
   /**
@@ -33,7 +33,7 @@ module.exports = {
   async execute(interaction, client) {
     const { options, guild, member } = interaction;
 
-    const target = options.getString('user_id');
+    const target = options.getString('input');
     const reason = options.getString('reason') || 'None specified';
     let error;
 

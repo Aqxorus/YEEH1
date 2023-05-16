@@ -34,7 +34,7 @@ module.exports = {
     if (!member.moderatable)
       errorArray.push(`${member} is not moderatable by this bot.`);
 
-    if (errorArray.lenth)
+    if (errorArray.length)
       return interaction.reply({
         embeds: [Embed.setDescription(errorArray.join('\n'))],
         ephemeral: true,

@@ -15,7 +15,7 @@ module.exports = {
     .setDMPermission(false)
     .addStringOption((options) =>
       options
-        .setName('message')
+        .setName('input')
         .setDescription('The message the bot is going to say. (DEV ONLY)')
         .setRequired(true)
     ),
@@ -25,7 +25,7 @@ module.exports = {
    * @param {Client} client
    */
   async execute(interaction, client) {
-    const message = interaction.options.getString('message');
+    const message = interaction.options.getString('input');
 
     await interaction.deferReply();
     await interaction.deleteReply();
