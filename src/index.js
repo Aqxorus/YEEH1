@@ -26,8 +26,8 @@ const client = new Client({
   client.commands = new Collection();
   client.guildConfig = new Collection();
 
-  loadEvents(client);
-  loadConfig(client);
+  await loadEvents(client);
+  await loadConfig(client);
 })();
 
 client.login(client.config.token);

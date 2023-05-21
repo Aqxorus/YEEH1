@@ -1,5 +1,5 @@
 {
-  "token": "TOKENHERE",
+  "token": "TOKEN HERE",
   "mongoUri": "MONGO URI HERE",
   "defaultCooldown": 5
 }

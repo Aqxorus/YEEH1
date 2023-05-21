@@ -25,6 +25,7 @@ function addSuffix(number) {
 }
 
 module.exports = {
+  cooldown: 10,
   data: new SlashCommandBuilder()
     .setName('userinfo')
     .setDescription(

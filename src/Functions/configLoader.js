@@ -10,7 +10,7 @@ async function loadConfig(client) {
       botRole: doc.botRole,
     });
   });
-  return console.log(
+  return console.info(
     greenBright('[Config Loader] Loaded Config/s to the collection')
   );
 }

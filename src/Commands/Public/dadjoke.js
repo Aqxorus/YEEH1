@@ -6,6 +6,7 @@ const {
 const axios = require('axios');
 
 module.exports = {
+  cooldown: 10,
   data: new SlashCommandBuilder()
     .setName('dadjokes')
     .setDescription('Random dad jokes from icanhazdadjoke.com')

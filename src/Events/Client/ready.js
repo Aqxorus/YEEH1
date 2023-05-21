@@ -54,12 +54,12 @@ module.exports = {
     set('strictQuery', false);
     await connect(client.config.mongoUri).then(() => {
       setTimeout(() => {
-        console.log(
+        console.info(
           green(`[Database] MongoDB is ${mongoStatus[connection.readyState]}`)
         );
       }, 1000 * 1);
     });
 
-    loadCommands(client);
+    await loadCommands(client);
   },
 };

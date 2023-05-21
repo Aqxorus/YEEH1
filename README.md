@@ -25,7 +25,7 @@
 pnpm install
 ```
 
-### 2. Copy the contents inside the [config.example.json](./config.example.json) file and put in your information.
+### 2. Copy the contents inside the [config.example.json](./config.example.json) file, create a file named "config.json, and put in your information.
 
 ### 3. Change the Dev ID to your Account ID
 
@@ -59,7 +59,7 @@ You can set your default cooldown for commands in your config.json file, under t
 {
   "token": "TOKEN HERE",
   "mongoUri": "MONGO URI HERE",
-  "defaultCooldown": 5 <--
+  "defaultCooldown": 5 <-- This is for command cooldown
 }
 ```
 
@@ -69,7 +69,7 @@ Additionally, you can also configure the cooldown per command like this:
 // Example command
 module.exports = {
   cooldown: 10, // Set the cooldown in seconds
-  name: '...',
+  data: new SlashCommandBuilder().setName('...'),
 };
 ```
 
