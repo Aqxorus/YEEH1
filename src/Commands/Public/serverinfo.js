@@ -20,6 +20,8 @@ module.exports = {
    * @param {Client} client
    */
   async execute(interaction, client) {
+    await interaction.deferReply();
+
     const { guild } = interaction;
     const { members, channels, emojis, roles, stickers } = guild;
 
@@ -74,7 +76,7 @@ module.exports = {
       ChannelType.GuildCategory,
     ]);
 
-    await interaction.reply({
+    await interaction.editReply({
       embeds: [
         new EmbedBuilder()
           .setColor('Random')
