@@ -15,7 +15,7 @@
 
 #### • [License](#license)
 
----
+### • [Features](#features)
 
 ## Installation
 
@@ -47,8 +47,6 @@ This will allow you to run the developer commands which are [here](./src/Command
 
 ### 4. Run pnpm start || pnpm start:dev to run your bot.
 
----
-
 ## Features
 
 ### 1. Cooldown
@@ -73,8 +71,6 @@ module.exports = {
 };
 ```
 
----
-
 ## API
 
 This bot uses the [Discord API](https://discord.com/developers/docs/reference#api-reference)
@@ -83,4 +79,4 @@ Small note: If editing the Readme, please conform to the [standard-readme](https
 
 ## License
 
-[GPL-3.0 © Aqxorus](./LICENSE)
+[Apache-2.0 © Aqxorus](./LICENSE)

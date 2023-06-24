@@ -73,7 +73,7 @@ module.exports = {
             name: 'Info',
             value: [
               `**Member:** ${fetchTargetBan.user.tag} *(${fetchTargetBan.user.id})*`,
-              `**Reason:** ${reason}, Issued by ${member.user.tag}`,
+              `**Reason:** ${reason} | Issued by ${member.user.tag}`,
             ].join('\n'),
             inline: true,
           })
