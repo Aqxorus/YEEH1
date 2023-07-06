@@ -16,9 +16,7 @@ module.exports = {
       'Displays the available information about the stated target.'
     )
     .setDMPermission(false)
-    .addUserOption((option) =>
-      option.setName('input').setDescription('Select the user')
-    ),
+    .addUserOption(option => option.setName('input').setDescription('Select the user').setRequired(false)),
   /**
    * @param {ChatInputCommandInteraction} interaction
    * @param {Client} client
