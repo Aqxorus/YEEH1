@@ -1,4 +1,4 @@
-// Only use this if you've made a change in the bot and want to reload the commands or events without restarting the bot.
+// ⚠ Only use this if you've made a change in the bot and want to reload the commands or events without restarting the bot.
 const {
   ChatInputCommandInteraction,
   SlashCommandBuilder,
@@ -17,12 +17,10 @@ module.exports = {
     .setDescription(`Reloads the events/commands.`)
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
     .setDMPermission(false)
-    .addSubcommand((option) =>
-      option.setName('events').setDescription('(DEV ONLY)')
-    ) // Reloads the events
-    .addSubcommand((option) =>
-      option.setName('commands').setDescription('(DEV ONLY)')
-    ), // Reloads the commands
+     // Reloads the events
+    .addSubcommand(option => option.setName('events').setDescription('(DEV ONLY)'))
+     // Reloads the commands
+    .addSubcommand(option => option.setName('commands').setDescription('(DEV ONLY)')),
   /**
    *
    * @param {ChatInputCommandInteraction} interaction
