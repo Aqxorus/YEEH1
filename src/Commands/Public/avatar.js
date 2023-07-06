@@ -11,8 +11,8 @@ module.exports = {
     .setName('avatar')
     .setDescription(`Shows a user's avatar`)
     .setDMPermission(false)
-    .addUserOption((options) =>
-      options.setName('input').setDescription('Select the user')
+    .addUserOption((option) =>
+      option.setName('input').setDescription('Select the user')
     ),
   /**
    *
