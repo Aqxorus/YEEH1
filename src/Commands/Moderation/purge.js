@@ -15,11 +15,11 @@ module.exports = {
     )
     .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages)
     .setDMPermission(false)
-    .addSubcommand((subcommand) =>
+    .addSubcommand(subcommand =>
       subcommand
         .setName('all')
         .setDescription('Removes all types of messages.')
-        .addIntegerOption((option) =>
+        .addIntegerOption(option =>
           option
             .setName('count')
             .setDescription('Input count.')
@@ -27,29 +27,29 @@ module.exports = {
             .setRequired(true)
         )
     )
-    .addSubcommand((subcommand) =>
+    .addSubcommand(subcommand =>
       subcommand
         .setName('user')
         .setDescription('Removes all messages from the stated user.')
-        .addIntegerOption((option) =>
+        .addIntegerOption(option =>
           option
             .setName('count')
             .setDescription('Input count.')
             .setMinValue(1)
             .setRequired(true)
         )
-        .addUserOption((option) =>
+        .addUserOption(option =>
           option
             .setName('user')
             .setDescription('Input user.')
             .setRequired(true)
         )
     )
-    .addSubcommand((subcommand) =>
+    .addSubcommand(subcommand =>
       subcommand
         .setName('bot')
         .setDescription('Removes bot messages.')
-        .addIntegerOption((option) =>
+        .addIntegerOption(option =>
           option
             .setName('count')
             .setDescription('Input count.')
