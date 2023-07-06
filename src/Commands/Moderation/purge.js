@@ -19,8 +19,8 @@ module.exports = {
       subcommand
         .setName('all')
         .setDescription('Removes all types of messages.')
-        .addIntegerOption((options) =>
-          options
+        .addIntegerOption((option) =>
+          option
             .setName('count')
             .setDescription('Input count.')
             .setMinValue(1)
@@ -31,15 +31,15 @@ module.exports = {
       subcommand
         .setName('user')
         .setDescription('Removes all messages from the stated user.')
-        .addIntegerOption((options) =>
-          options
+        .addIntegerOption((option) =>
+          option
             .setName('count')
             .setDescription('Input count.')
             .setMinValue(1)
             .setRequired(true)
         )
-        .addUserOption((options) =>
-          options
+        .addUserOption((option) =>
+          option
             .setName('user')
             .setDescription('Input user.')
             .setRequired(true)
@@ -49,8 +49,8 @@ module.exports = {
       subcommand
         .setName('bot')
         .setDescription('Removes bot messages.')
-        .addIntegerOption((options) =>
-          options
+        .addIntegerOption((option) =>
+          option
             .setName('count')
             .setDescription('Input count.')
             .setMinValue(1)
