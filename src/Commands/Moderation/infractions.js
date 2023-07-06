@@ -13,8 +13,8 @@ module.exports = {
     .setDescription('Shows the infractions of any member.')
     .setDMPermission(false)
     .setDefaultMemberPermissions(PermissionFlagsBits.ModerateMembers)
-    .addUserOption((options) =>
-      options
+    .addUserOption((option) =>
+      option
         .setName('input')
         .setDescription('Select the member you would like to check.')
         .setRequired(true)
