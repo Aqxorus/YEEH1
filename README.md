@@ -1,6 +1,6 @@
 # YEEH1
 
-![banner](https://cdn.discordapp.com/attachments/966577871579660288/1053891959091101716/Untitled_design.png)
+![banner](https://cdn.discordapp.com/attachments/910742787597676544/1126308541309911150/Untitled_design.png)
 
 [![license](https://img.shields.io/github/license/Aqxorus/YEEH1)](./LICENSE)
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
