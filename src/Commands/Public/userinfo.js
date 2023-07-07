@@ -22,6 +22,22 @@ module.exports = {
    * @param {Client} client
    */
   async execute(interaction, client) {
+    function addSuffix(number) {
+      if (number % 100 >= 11 && number % 100 <= 13) {
+        return number + 'th';
+      }
+
+      switch (number % 10) {
+        case 1:
+          return number + 'st';
+        case 2:
+          return number + 'nd';
+        case 3:
+          return number + 'rd';
+      }
+      return number + 'th';
+    }
+
     interaction.deferReply();
 
     const target = interaction.options.getMember('input') || interaction.member;
@@ -210,21 +226,5 @@ module.exports = {
       ],
       files: [imageAttachment],
     });
-    
-    function addSuffix(number) {
-      if (number % 100 >= 11 && number % 100 <= 13) {
-        return number + 'th';
-      }
-
-      switch (number % 10) {
-        case 1:
-          return number + 'st';
-        case 2:
-          return number + 'nd';
-        case 3:
-          return number + 'rd';
-      }
-      return number + 'th';
-    }
-  }
+  },
 };
