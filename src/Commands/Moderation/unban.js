@@ -13,14 +13,14 @@ module.exports = {
     .setDescription(`Unbans a user.`)
     .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)
     .setDMPermission(false)
-    .addStringOption((options) =>
-      options
+    .addStringOption(option =>
+      option
         .setName('input')
         .setDescription('The ID of the user you want to unban')
         .setRequired(true)
     )
-    .addStringOption((options) =>
-      options
+    .addStringOption(option =>
+      option
         .setName('reason')
         .setDescription('Provide a reason for this unban.')
         .setMaxLength(512)

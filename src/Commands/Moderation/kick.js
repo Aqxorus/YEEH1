@@ -15,14 +15,14 @@ module.exports = {
     .setDescription(`Kicks a user.`)
     .setDefaultMemberPermissions(PermissionFlagsBits.KickMembers)
     .setDMPermission(false)
-    .addUserOption((options) =>
-      options
+    .addUserOption(option =>
+      option
         .setName('input')
         .setDescription('Select the target member.')
         .setRequired(true)
     )
-    .addStringOption((options) =>
-      options
+    .addStringOption(option =>
+      option
         .setName('reason')
         .setDescription('Provide a reason for this kick.')
         .setMaxLength(512)

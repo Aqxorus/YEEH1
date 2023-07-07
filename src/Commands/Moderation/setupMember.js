@@ -16,20 +16,20 @@ module.exports = {
     .setDescription('Configure the member logging system for your server.')
     .setDefaultMemberPermissions(PermissionFlagsBits.ManageGuild)
     .setDMPermission(false)
-    .addChannelOption((options) =>
-      options
+    .addChannelOption(option =>
+      option
         .setName('log_channel')
         .setDescription('Select the logging channel for this system')
         .addChannelTypes(ChannelType.GuildText)
         .setRequired(true)
     )
-    .addRoleOption((options) =>
-      options
+    .addRoleOption(option =>
+      option
         .setName('member_role')
         .setDescription('Set the role to be automatically added')
     )
-    .addRoleOption((options) =>
-      options
+    .addRoleOption(option =>
+      option
         .setName('bot_role')
         .setDescription('Set the role to automatically added to new bots.')
     ),

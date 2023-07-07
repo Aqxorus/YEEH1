@@ -8,22 +8,6 @@ const {
 } = require('discord.js');
 const { profileImage } = require('discord-arts');
 
-function addSuffix(number) {
-  if (number % 100 >= 11 && number % 100 <= 13) {
-    return number + 'th';
-  }
-
-  switch (number % 10) {
-    case 1:
-      return number + 'st';
-    case 2:
-      return number + 'nd';
-    case 3:
-      return number + 'rd';
-  }
-  return number + 'th';
-}
-
 module.exports = {
   cooldown: 10,
   data: new SlashCommandBuilder()
@@ -32,9 +16,7 @@ module.exports = {
       'Displays the available information about the stated target.'
     )
     .setDMPermission(false)
-    .addUserOption((options) =>
-      options.setName('input').setDescription('Select the user')
-    ),
+    .addUserOption(option => option.setName('input').setDescription('Select the user').setRequired(false)),
   /**
    * @param {ChatInputCommandInteraction} interaction
    * @param {Client} client
@@ -228,5 +210,21 @@ module.exports = {
       ],
       files: [imageAttachment],
     });
-  },
+    
+    function addSuffix(number) {
+      if (number % 100 >= 11 && number % 100 <= 13) {
+        return number + 'th';
+      }
+
+      switch (number % 10) {
+        case 1:
+          return number + 'st';
+        case 2:
+          return number + 'nd';
+        case 3:
+          return number + 'rd';
+      }
+      return number + 'th';
+    }
+  }
 };

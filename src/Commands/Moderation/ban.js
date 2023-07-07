@@ -14,14 +14,14 @@ module.exports = {
     .setDescription(`Bans a user.`)
     .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)
     .setDMPermission(false)
-    .addUserOption((options) =>
-      options
+    .addUserOption(option =>
+      option
         .setName('input')
         .setDescription('Select the target member.')
         .setRequired(true)
     )
-    .addStringOption((options) =>
-      options
+    .addStringOption(option =>
+      option
         .setName('reason')
         .setDescription('Provide a reason for this ban.')
         .setMaxLength(512)
