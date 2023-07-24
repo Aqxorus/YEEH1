@@ -15,7 +15,7 @@
 
 #### • [License](#license)
 
-### • [Features](#features)
+#### • [Features](#features)
 
 ## Installation
 
