@@ -29,7 +29,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
       - name: 'Install dependencies'
-        run: rm -rf node_modules && pnpm install --frozen-lockfile
+        run: rm -rf node_modules && pnpm install --no-frozen-lockfile
       # - run: pnpm run build --if-present
       - name: SSH Remote Commands
         # You may pin to the exact commit or the version.
