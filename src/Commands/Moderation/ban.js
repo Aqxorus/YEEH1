@@ -95,13 +95,13 @@ module.exports = {
 
     const successEmbed = new EmbedBuilder()
       .setAuthor({
-        name: ' issues',
+        name: 'Ban issues',
         iconURL: guild.iconURL(),
       })
       .setColor('Gold')
       .setDescription(
         [
-          `${target} was issued a kick **by ${member}`,
+          `${target} was issued a ban **by ${member}`,
           `bringing their infractions to ${userData.infractions.length} points**.`,
           `\nReason: ${reason}`,
         ].join('\n')

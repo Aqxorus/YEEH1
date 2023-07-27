@@ -96,7 +96,7 @@ module.exports = {
 
     const successEmbed = new EmbedBuilder()
       .setAuthor({
-        name: ' issues',
+        name: 'Kick issues',
         iconURL: guild.iconURL(),
       })
       .setColor('Gold')
