@@ -16,12 +16,21 @@ module.exports = {
       'Displays the available information about the stated target.'
     )
     .setDMPermission(false)
-    .addUserOption(option => option.setName('input').setDescription('Select the user').setRequired(false)),
+    .addUserOption((option) =>
+      option
+        .setName('input')
+        .setDescription('Select the user')
+        .setRequired(false)
+    ),
   /**
    * @param {ChatInputCommandInteraction} interaction
    * @param {Client} client
    */
   async execute(interaction, client) {
+
+    interaction.reply({
+      content: 'Working on it...',
+    });
     function addSuffix(number) {
       if (number % 100 >= 11 && number % 100 <= 13) {
         return number + 'th';
@@ -37,8 +46,6 @@ module.exports = {
       }
       return number + 'th';
     }
-
-    interaction.deferReply();
 
     const target = interaction.options.getMember('input') || interaction.member;
     const { user, presence, roles } = target;
@@ -137,7 +144,7 @@ module.exports = {
       ? new Array(deviceFilter)
       : deviceFilter;
 
-    await interaction.editReply({
+    await interaction.followUp({
       embeds: [
         new EmbedBuilder()
           .setColor('Random')
