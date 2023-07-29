@@ -27,7 +27,7 @@ module.exports = {
    * @param {Client} client
    */
   async execute(interaction, client) {
-    interaction.reply({
+    await interaction.reply({
       content: 'Working on it...',
       ephemeral: true,
     });
