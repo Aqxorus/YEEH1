@@ -27,10 +27,11 @@ module.exports = {
    * @param {Client} client
    */
   async execute(interaction, client) {
-
     interaction.reply({
       content: 'Working on it...',
+      ephemeral: true,
     });
+    
     function addSuffix(number) {
       if (number % 100 >= 11 && number % 100 <= 13) {
         return number + 'th';
