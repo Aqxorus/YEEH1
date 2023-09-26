@@ -18,8 +18,8 @@ dependencies:
     specifier: ^14.13.0
     version: 14.13.0
   glob:
-    specifier: ^10.3.3
-    version: 10.3.3
+    specifier: ^10.3.9
+    version: 10.3.9
   moment:
     specifier: ^2.29.4
     version: 2.29.4
@@ -527,13 +527,13 @@ packages:
       is-glob: 4.0.3
     dev: true
 
-  /glob@10.3.3:
-    resolution: {integrity: sha512-92vPiMb/iqpmEgsOoIDvTjc50wf9CCCvMzsi6W0JLPeUKE8TWP1a73PgqSrqy7iAZxaSD1YdzU7QZR5LF51MJw==}
+  /glob@10.3.9:
+    resolution: {integrity: sha512-2tU/LKevAQvDVuVJ9pg9Yv9xcbSh+TqHuTaXTNbQwf+0kDl9Fm6bMovi4Nm5c8TVvfxo2LLcqCGtmO9KoJaGWg==}
     engines: {node: '>=16 || 14 >=14.17'}
     hasBin: true
     dependencies:
       foreground-child: 3.1.1
-      jackspeak: 2.3.0
+      jackspeak: 2.3.5
       minimatch: 9.0.3
       minipass: 7.0.3
       path-scurry: 1.10.1
@@ -585,8 +585,8 @@ packages:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
     dev: false
 
-  /jackspeak@2.3.0:
-    resolution: {integrity: sha512-uKmsITSsF4rUWQHzqaRUuyAir3fZfW3f202Ee34lz/gZCi970CPZwyQXLGNgWJvvZbvFyzeyGq0+4fcG/mBKZg==}
+  /jackspeak@2.3.5:
+    resolution: {integrity: sha512-Ratx+B8WeXLAtRJn26hrhY8S1+Jz6pxPMrkrdkgb/NstTNiqMhX0/oFVu5wX+g5n6JlEu2LPsDJmY8nRP4+alw==}
     engines: {node: '>=14'}
     dependencies:
       '@isaacs/cliui': 8.0.2
@@ -625,6 +625,7 @@ packages:
 
   /memory-pager@1.5.0:
     resolution: {integrity: sha512-ZS4Bp4r/Zoeq6+NLJpP+0Zzm0pR8whtGPf1XExKLJBAczGMnSi3It14OiNCStjQjM6NU1okjQGSxgEZN8eBYKg==}
+    requiresBuild: true
     dev: false
     optional: true
 
@@ -877,6 +878,7 @@ packages:
 
   /sparse-bitfield@3.0.3:
     resolution: {integrity: sha512-kvzhi7vqKTfkh0PZU+2D2PIllw2ymqJKujUcyPMd9Y75Nv4nPbGJZXNhxsgdQab2BmlDct1YnfQCguEvHr7VsQ==}
+    requiresBuild: true
     dependencies:
       memory-pager: 1.5.0
     dev: false
