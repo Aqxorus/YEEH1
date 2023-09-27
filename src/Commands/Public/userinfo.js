@@ -29,7 +29,6 @@ module.exports = {
   async execute(interaction, client) {
     await interaction.reply({
       content: 'Working on it...',
-      ephemeral: true,
     });
     
     function addSuffix(number) {
