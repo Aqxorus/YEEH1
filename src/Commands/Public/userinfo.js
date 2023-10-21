@@ -27,8 +27,8 @@ module.exports = {
    * @param {Client} client
    */
   async execute(interaction, client) {
-    await interaction.reply({
-      content: 'Working on it...',
+    await interaction.deferReply({
+      fetchReply: true
     });
     
     function addSuffix(number) {
@@ -144,7 +144,7 @@ module.exports = {
       ? new Array(deviceFilter)
       : deviceFilter;
 
-    await interaction.followUp({
+    await interaction.editReply({
       embeds: [
         new EmbedBuilder()
           .setColor('Random')
