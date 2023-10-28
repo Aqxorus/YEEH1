@@ -5,9 +5,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: ['main']
+    branches: ["main"]
   pull_request:
-    branches: ['main']
+    branches: ["main"]
 
 jobs:
   build:
@@ -27,8 +27,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
-      - name: 'Install dependencies'
+          cache: "pnpm"
+      - name: "Install dependencies"
         run: rm -rf node_modules && pnpm install --no-frozen-lockfile
       # - run: pnpm run build --if-present
       - name: SSH Remote Commands
@@ -44,5 +44,5 @@ jobs:
             pm2 delete all
             cd /root/YEEH1
             git pull
-            pnpm install
+            npm install
             pm2 start src/index.js
