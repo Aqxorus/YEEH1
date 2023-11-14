@@ -15,19 +15,19 @@ module.exports = {
     .setDescription(`Timeouts a user.`)
     .setDefaultMemberPermissions(PermissionFlagsBits.ModerateMembers)
     .setDMPermission(false)
-    .addUserOption(option =>
+    .addUserOption((option) =>
       option
         .setName('target')
         .setDescription('Select the target member.')
         .setRequired(true)
     )
-    .addStringOption(option =>
+    .addStringOption((option) =>
       option
         .setName('duration')
         .setDescription('Provide a duration for this timeout. (1m, 1h, 1d)')
         .setRequired(true)
     )
-    .addStringOption(option =>
+    .addStringOption((option) =>
       option
         .setName('reason')
         .setDescription('Provide a reason for this timeout.')
