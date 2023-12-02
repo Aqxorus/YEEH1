@@ -27,10 +27,8 @@ module.exports = {
    * @param {Client} client
    */
   async execute(interaction, client) {
-    await interaction.deferReply({
-      fetchReply: true
-    });
-    
+    await interaction.deferReply();
+
     function addSuffix(number) {
       if (number % 100 >= 11 && number % 100 <= 13) {
         return number + 'th';
