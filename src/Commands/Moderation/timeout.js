@@ -43,9 +43,11 @@ module.exports = {
 
     const target = options.getMember('target');
     const duration = options.getString('duration');
+    const reasonRaw = options.getString('reason');
     const reason =
-      `${options.getString('reason')}, Issued by ${interaction.user.tag}` ||
-      `None specified, Issued by ${interaction.user.tag}`;
+      reasonRaw !== null
+        ? `${reasonRaw}, Issued by ${interaction.user.tag}`
+        : `None specified, Issued by ${interaction.user.tag}`;
 
     const errorsArray = [];
 
