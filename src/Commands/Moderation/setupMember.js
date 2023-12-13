@@ -16,19 +16,19 @@ module.exports = {
     .setDescription('Configure the member logging system for your server.')
     .setDefaultMemberPermissions(PermissionFlagsBits.ManageGuild)
     .setDMPermission(false)
-    .addChannelOption(option =>
+    .addChannelOption((option) =>
       option
         .setName('log_channel')
         .setDescription('Select the logging channel for this system')
         .addChannelTypes(ChannelType.GuildText)
         .setRequired(true)
     )
-    .addRoleOption(option =>
+    .addRoleOption((option) =>
       option
         .setName('member_role')
         .setDescription('Set the role to be automatically added')
     )
-    .addRoleOption(option =>
+    .addRoleOption((option) =>
       option
         .setName('bot_role')
         .setDescription('Set the role to automatically added to new bots.')
@@ -40,6 +40,8 @@ module.exports = {
    */
   async execute(interaction, client) {
     const { guild, options } = interaction;
+
+    const serverName = guild.name;
 
     const logChannel = options.getChannel('log_channel').id;
 
