@@ -56,6 +56,7 @@ module.exports = {
     await Database.findOneAndUpdate(
       {
         Guild: guild.id,
+        guildName: serverName,
       },
       {
         logChannel: logChannel,
