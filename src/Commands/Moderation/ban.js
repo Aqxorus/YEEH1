@@ -6,7 +6,6 @@ const {
   EmbedBuilder,
   Client,
 } = require('discord.js');
-const Database = require('../../Models/Infractions');
 
 module.exports = {
   data: new SlashCommandBuilder()
