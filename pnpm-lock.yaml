@@ -32,8 +32,8 @@ dependencies:
 
 devDependencies:
   nodemon:
-    specifier: ^3.0.2
-    version: 3.0.2
+    specifier: ^3.1.0
+    version: 3.1.0
 
 packages:
 
@@ -750,8 +750,8 @@ packages:
       whatwg-url: 5.0.0
     dev: false
 
-  /nodemon@3.0.2:
-    resolution: {integrity: sha512-9qIN2LNTrEzpOPBaWHTm4Asy1LxXLSickZStAQ4IZe7zsoIpD/A7LWxhZV3t4Zu352uBcqVnRsDXSMR2Sc3lTA==}
+  /nodemon@3.1.0:
+    resolution: {integrity: sha512-xqlktYlDMCepBJd43ZQhjWwMw2obW/JRvkrLxq5RCNcuDDX1DbcPT+qT1IlIIdf+DhnWs90JpTMe+Y5KxOchvA==}
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
