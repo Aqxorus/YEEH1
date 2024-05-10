@@ -25,6 +25,7 @@ async function loadEvents(client) {
         });
       }
     } catch (error) {
+      console.error(error);
       const eventName = file.split('/').pop().slice(0, -3);
       if (!events.has(eventName)) {
         events.set(eventName, {

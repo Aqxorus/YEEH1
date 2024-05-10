@@ -23,6 +23,7 @@ async function loadCommands(client) {
         Status: '✅',
       });
     } catch (error) {
+      console.error(error);
       commands.push({
         Event: file.split('/').pop().slice(0, -3),
         Status: '❌',

@@ -17,10 +17,14 @@ module.exports = {
     .setDescription(`Reloads the events/commands.`)
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
     .setDMPermission(false)
-     // Reloads the events
-    .addSubcommand(option => option.setName('events').setDescription('(DEV ONLY)'))
-     // Reloads the commands
-    .addSubcommand(option => option.setName('commands').setDescription('(DEV ONLY)')),
+    // Reloads the events
+    .addSubcommand((option) =>
+      option.setName('events').setDescription('(DEV ONLY)')
+    )
+    // Reloads the commands
+    .addSubcommand((option) =>
+      option.setName('commands').setDescription('(DEV ONLY)')
+    ),
   /**
    *
    * @param {ChatInputCommandInteraction} interaction
