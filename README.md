@@ -19,15 +19,15 @@
 
 ## Installation
 
-### 1. Install the required dependencies
+#### 1. Install the required dependencies
 
 ```ps
 pnpm install
 ```
 
-### 2. Copy the contents inside the [config.example.json](./config.example.json) file, create a file named "config.json, and put in your information.
+#### 2. Copy the contents inside the [config.example.json](./config.example.json) file, create a file named "config.json, and put in your information.
 
-### 3. Change the Dev ID to your Account ID
+#### 3. Change the Dev ID to your Account ID
 
 In [interactionCreate.js](./src/Events/Interactions/interactionCreate.js), change <font color='#FFFF00'>598624275083034654</font> to your discord account ID
 
@@ -45,11 +45,11 @@ if (command.developer && interaction.user.id !== '598624275083034654')
 
 This will allow you to run the developer commands which are [here](./src/Commands/Developer)
 
-### 4. Run pnpm start || pnpm start:dev to run your bot.
+#### 4. Run pnpm start || pnpm start:dev to run your bot.
 
 ## Features
 
-### 1. Cooldown
+#### 1. Cooldown
 
 You can set your default cooldown for commands in your config.json file, under the 'defaultCooldown' property.
 
