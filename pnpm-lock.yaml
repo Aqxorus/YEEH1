@@ -12,8 +12,8 @@ dependencies:
     specifier: ^2.0.20
     version: 2.0.20
   discord-arts:
-    specifier: ^0.5.8
-    version: 0.5.8
+    specifier: ^0.6.1
+    version: 0.6.1
   discord.js:
     specifier: ^14.15.2
     version: 14.15.2
@@ -423,8 +423,8 @@ packages:
     resolution: {integrity: sha512-urGGYeWtWNYMKnYlZnOnDHm8fVRffQs3U0SpE8RHeiuLKb/u92APS8HoQnPTFbnXmY1vVnXjXO4dOxcAn3J+DA==}
     dev: false
 
-  /discord-arts@0.5.8:
-    resolution: {integrity: sha512-ekFhBSoBgWytNgZElIAtWtYtludkMlMd+tnFS6Uiov6ae3W5D5CxtRmY9xfsryZ5v2qy65jGQ/FjJcmKGZ8KUA==}
+  /discord-arts@0.6.1:
+    resolution: {integrity: sha512-XRny91vhr94UUsDS1dk8uGsLq0K1wwRXJ6qk3M9jN8TmINI+mQt6SqhEcBon6/ulRBS//PhPRrRfg5KkvGqtig==}
     dependencies:
       '@napi-rs/canvas': 0.1.52
       node-fetch: 2.7.0
