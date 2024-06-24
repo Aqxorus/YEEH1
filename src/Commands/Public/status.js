@@ -22,6 +22,8 @@ module.exports = {
    * @param {Client} client
    */
   async execute(interaction, client) {
+    await interaction.deferReply();
+
     const formatter = new Intl.ListFormat('en-GB', {
       style: 'long',
       type: 'conjunction',
@@ -36,7 +38,7 @@ module.exports = {
       client.channels.cache.filter((channel) => type.includes(channel.type))
         .size;
 
-    await interaction.reply({
+    await interaction.editReply({
       embeds: [
         new EmbedBuilder()
           .setColor('Random')
