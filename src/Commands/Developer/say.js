@@ -50,7 +50,7 @@ module.exports = {
             modalInteraction.fields.getTextInputValue('sayInput');
 
           modalInteraction.deferReply();
-          modalInteraction.reply({
+          modalInteraction.editReply({
             content: 'Saying the message...',
             ephemeral: true,
           });
