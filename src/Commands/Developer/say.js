@@ -50,7 +50,10 @@ module.exports = {
             modalInteraction.fields.getTextInputValue('sayInput');
 
           modalInteraction.deferReply();
-          modalInteraction.deleteReply();
+          modalInteraction.reply({
+            content: 'Saying the message...',
+            ephemeral: true,
+          });
           modalInteraction.channel.send(sayInput);
         });
     } catch (error) {
