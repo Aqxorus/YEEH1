@@ -5,6 +5,7 @@ const {
   PermissionFlagsBits,
   EmbedBuilder,
   Client,
+  InteractionContextType,
 } = require('discord.js');
 
 module.exports = {
@@ -12,14 +13,14 @@ module.exports = {
     .setName('unban')
     .setDescription(`Unbans a user.`)
     .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)
-    .setDMPermission(false)
-    .addStringOption(option =>
+    .setContexts(InteractionContextType.Guild)
+    .addStringOption((option) =>
       option
         .setName('input')
         .setDescription('The ID of the user you want to unban')
         .setRequired(true)
     )
-    .addStringOption(option =>
+    .addStringOption((option) =>
       option
         .setName('reason')
         .setDescription('Provide a reason for this unban.')

@@ -5,6 +5,7 @@ const {
   EmbedBuilder,
   ChatInputCommandInteraction,
   Client,
+  InteractionContextType,
 } = require('discord.js');
 
 module.exports = {
@@ -14,7 +15,7 @@ module.exports = {
       'Purge a specific amount of messages from a target or channel.'
     )
     .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages)
-    .setDMPermission(false)
+    .setContexts(InteractionContextType.Guild)
     .addSubcommand((subcommand) =>
       subcommand
         .setName('all')

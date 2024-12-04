@@ -5,6 +5,7 @@ const {
   SlashCommandBuilder,
   Client,
   AttachmentBuilder,
+  InteractionContextType,
 } = require('discord.js');
 const { profileImage } = require('discord-arts');
 
@@ -15,7 +16,7 @@ module.exports = {
     .setDescription(
       'Displays the available information about the stated target.'
     )
-    .setDMPermission(false)
+    .setContexts(InteractionContextType.Guild)
     .addUserOption((option) =>
       option
         .setName('input')

@@ -5,6 +5,7 @@ const {
   PermissionFlagsBits,
   EmbedBuilder,
   Client,
+  InteractionContextType,
 } = require('discord.js');
 const Database = require('../../Models/Infractions');
 const ms = require('ms');
@@ -14,7 +15,7 @@ module.exports = {
     .setName('timeout')
     .setDescription(`Timeouts a user.`)
     .setDefaultMemberPermissions(PermissionFlagsBits.ModerateMembers)
-    .setDMPermission(false)
+    .setContexts(InteractionContextType.Guild)
     .addUserOption((option) =>
       option
         .setName('target')

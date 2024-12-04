@@ -5,6 +5,7 @@ const {
   PermissionFlagsBits,
   EmbedBuilder,
   Client,
+  InteractionContextType,
 } = require('discord.js');
 
 module.exports = {
@@ -12,7 +13,7 @@ module.exports = {
     .setName('ban')
     .setDescription(`Bans a user.`)
     .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)
-    .setDMPermission(false)
+    .setContexts(InteractionContextType.Guild)
     .addUserOption((option) =>
       option
         .setName('input')

@@ -5,6 +5,7 @@ const {
   PermissionFlagsBits,
   Client,
   EmbedBuilder,
+  InteractionContextType,
 } = require('discord.js');
 
 module.exports = {
@@ -13,7 +14,7 @@ module.exports = {
     .setName('leave')
     .setDescription(`Leaves a server`)
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
-    .setDMPermission(false)
+    .setContexts(InteractionContextType.Guild)
     .addStringOption((option) =>
       option
         .setName('id')

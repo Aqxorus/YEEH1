@@ -3,6 +3,7 @@ const {
   SlashCommandBuilder,
   EmbedBuilder,
   PermissionFlagsBits,
+  InteractionContextType,
 } = require('discord.js');
 const DataBase = require('../../Models/Infractions');
 
@@ -10,7 +11,7 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName('infractions')
     .setDescription('Shows the infractions of any member.')
-    .setDMPermission(false)
+    .setContexts(InteractionContextType.Guild)
     .setDefaultMemberPermissions(PermissionFlagsBits.ModerateMembers)
     .addUserOption((option) =>
       option

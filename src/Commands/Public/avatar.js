@@ -4,14 +4,15 @@ const {
   SlashCommandBuilder,
   EmbedBuilder,
   Client,
+  InteractionContextType,
 } = require('discord.js');
 
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('avatar')
     .setDescription(`Shows a user's avatar`)
-    .setDMPermission(false)
-    .addUserOption(option =>
+    .setContexts(InteractionContextType.Guild)
+    .addUserOption((option) =>
       option.setName('input').setDescription('Select the user')
     ),
   /**

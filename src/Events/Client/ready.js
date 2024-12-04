@@ -53,10 +53,15 @@ module.exports = {
 
     try {
       mongoose.set('strictQuery', false);
+      mongoose.set('bufferTimeoutMS', 500);
       await mongoose.connect(client.config.mongoUri).then(() => {
         setTimeout(() => {
           console.info(
-            green(`[Database] MongoDB is ${mongoStatus[connection.readyState]}`)
+            green(
+              `[Database] MongoDB is ${
+                mongoStatus[mongoose.connection.readyState]
+              }`
+            )
           );
         }, 1000 * 1);
       });

@@ -8,13 +8,14 @@ const {
   GuildExplicitContentFilter,
   GuildNSFWLevel,
   Client,
+  InteractionContextType,
 } = require('discord.js');
 
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('serverinfo')
     .setDescription('Displays information/stats about the server')
-    .setDMPermission(false),
+    .setContexts(InteractionContextType.Guild),
   /**
    * @param {ChatInputCommandInteraction} interaction
    * @param {Client} client

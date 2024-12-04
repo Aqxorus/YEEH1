@@ -5,6 +5,7 @@ const {
   PermissionFlagsBits,
   Client,
   EmbedBuilder,
+  InteractionContextType,
 } = require('discord.js');
 
 const { loadCommands } = require('../../Handlers/commandHandler');
@@ -16,7 +17,7 @@ module.exports = {
     .setName('reload')
     .setDescription(`Reloads the events/commands.`)
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
-    .setDMPermission(false)
+    .setContexts(InteractionContextType.Guild)
     // Reloads the events
     .addSubcommand((option) =>
       option.setName('events').setDescription('(DEV ONLY)')

@@ -7,6 +7,7 @@ const {
   ChannelType,
   version,
   UserFlags,
+  InteractionContextType,
 } = require('discord.js');
 const { connection } = require('mongoose');
 const os = require('os');
@@ -16,7 +17,7 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName('status')
     .setDescription('Displays the status of the client/bot and database.')
-    .setDMPermission(false),
+    .setContexts(InteractionContextType.Guild),
   /**
    * @param {ChatInputCommandInteraction} interaction
    * @param {Client} client

@@ -6,6 +6,7 @@ const {
   EmbedBuilder,
   ChannelType,
   Client,
+  InteractionContextType,
 } = require('discord.js');
 const Database = require('../../Models/memberLog');
 
@@ -15,7 +16,7 @@ module.exports = {
     .setName('clear_memberlog')
     .setDescription('Clear the member logging system for your server.')
     .setDefaultMemberPermissions(PermissionFlagsBits.ManageGuild)
-    .setDMPermission(false),
+    .setContexts(InteractionContextType.Guild),
   /**
    *
    * @param {ChatInputCommandInteraction} interaction

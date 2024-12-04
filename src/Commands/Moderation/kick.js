@@ -5,6 +5,7 @@ const {
   PermissionFlagsBits,
   EmbedBuilder,
   Client,
+  InteractionContextType,
 } = require('discord.js');
 const Database = require('../../Models/Infractions');
 const ms = require('ms');
@@ -14,14 +15,14 @@ module.exports = {
     .setName('kick')
     .setDescription(`Kicks a user.`)
     .setDefaultMemberPermissions(PermissionFlagsBits.KickMembers)
-    .setDMPermission(false)
-    .addUserOption(option =>
+    .setContexts(InteractionContextType.Guild)
+    .addUserOption((option) =>
       option
         .setName('input')
         .setDescription('Select the target member.')
         .setRequired(true)
     )
-    .addStringOption(option =>
+    .addStringOption((option) =>
       option
         .setName('reason')
         .setDescription('Provide a reason for this kick.')

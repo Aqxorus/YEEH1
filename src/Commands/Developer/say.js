@@ -8,6 +8,7 @@ const {
   ModalBuilder,
   TextInputBuilder,
   TextInputStyle,
+  InteractionContextType,
 } = require('discord.js');
 
 module.exports = {
@@ -16,7 +17,7 @@ module.exports = {
     .setName('say')
     .setDescription(`Says the provided text. (DEV ONLY)`)
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
-    .setDMPermission(false),
+    .setContexts(InteractionContextType.Guild),
   /**
    *
    * @param {ChatInputCommandInteraction} interaction
@@ -42,6 +43,7 @@ module.exports = {
 
     const filter = (interaction) =>
       interaction.customId === `sayModal-${interaction.user.id}`;
+
     try {
       interaction
         .awaitModalSubmit({ filter, time: 30_000 })
@@ -50,10 +52,7 @@ module.exports = {
             modalInteraction.fields.getTextInputValue('sayInput');
 
           modalInteraction.deferReply();
-          modalInteraction.editReply({
-            content: 'Saying the message...',
-            ephemeral: true,
-          });
+          modalInteraction.deleteReply();
           modalInteraction.channel.send(sayInput);
         });
     } catch (error) {
