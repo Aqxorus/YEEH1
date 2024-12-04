@@ -24,7 +24,7 @@ module.exports = {
    */
   async execute(interaction, client) {
     const modal = new ModalBuilder({
-      customId: `myModal-${interaction.user.id}`,
+      customId: `sayModal-${interaction.user.id}`,
       title: 'Say',
     });
 
@@ -34,26 +34,27 @@ module.exports = {
       style: TextInputStyle.Paragraph,
     });
 
-    const row = new ActionRowBuilder().addComponents(thingToSay);
+    const firstRow = new ActionRowBuilder().addComponents(thingToSay);
 
-    modal.addComponents(row);
+    modal.addComponents(firstRow);
 
     await interaction.showModal(modal);
 
     const filter = (interaction) =>
-      interaction.customId === `myModal-${interaction.user.id}`;
+      interaction.customId === `sayModal-${interaction.user.id}`;
+    try {
+      interaction
+        .awaitModalSubmit({ filter, time: 30_000 })
+        .then((modalInteraction) => {
+          const sayInput =
+            modalInteraction.fields.getTextInputValue('sayInput');
 
-    interaction
-      .awaitModalSubmit({ filter, time: 30_000 })
-      .then((modalInteraction) => {
-        const sayInput = modalInteraction.fields.getTextInputValue('sayInput');
-
-        modalInteraction.deferReply();
-        modalInteraction.deleteReply();
-        modalInteraction.channel.send(sayInput);
-      })
-      .catch((err) => {
-        console.log(`Error: ${err}`);
-      });
+          modalInteraction.deferReply();
+          modalInteraction.deleteReply();
+          modalInteraction.channel.send(sayInput);
+        });
+    } catch (error) {
+      console.log(`Error: ${err}`);
+    }
   },
 };
