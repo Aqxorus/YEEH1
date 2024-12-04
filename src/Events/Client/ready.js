@@ -1,6 +1,6 @@
 'use strict';
 const { ActivityType } = require('discord.js');
-const { connect, connection, set } = require('mongoose');
+const mongoose = require('mongoose');
 const { loadCommands } = require('../../Handlers/commandHandler');
 const { Client } = require('discord.js');
 const { green } = require('colorette');
@@ -51,14 +51,18 @@ module.exports = {
       'disconnecting',
     ];
 
-    set('strictQuery', false);
-    await connect(client.config.mongoUri).then(() => {
-      setTimeout(() => {
-        console.info(
-          green(`[Database] MongoDB is ${mongoStatus[connection.readyState]}`)
-        );
-      }, 1000 * 1);
-    });
+    try {
+      mongoose.set('strictQuery', false);
+      await mongoose.connect(client.config.mongoUri).then(() => {
+        setTimeout(() => {
+          console.info(
+            green(`[Database] MongoDB is ${mongoStatus[connection.readyState]}`)
+          );
+        }, 1000 * 1);
+      });
+    } catch (error) {
+      handleError(error);
+    }
 
     await loadCommands(client);
   },
