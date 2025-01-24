@@ -3,6 +3,7 @@ const {
   ChatInputCommandInteraction,
   EmbedBuilder,
   Client,
+  MessageFlags,
 } = require('discord.js');
 const config = require('../../../config.json');
 
@@ -26,7 +27,7 @@ module.exports = {
             .setColor('Red')
             .setDescription('This command is outdated'),
         ],
-        ephemeral: true,
+        flags: MessageFlags.Ephemeral,
       });
 
     if (command.developer && interaction.user.id !== '598624275083034654')
@@ -36,7 +37,7 @@ module.exports = {
             .setColor('Red')
             .setDescription('This command is only available to the developer.'),
         ],
-        ephemeral: true,
+        flags: MessageFlags.Ephemeral,
       });
 
     if (!cooldowns.has(command.name)) {
@@ -65,7 +66,7 @@ module.exports = {
                 }\` command again.`
               ),
           ],
-          ephemeral: true,
+          flags: MessageFlags.Ephemeral,
         });
       }
     }
@@ -85,7 +86,7 @@ module.exports = {
               'Something went wrong while executing this command'
             ),
         ],
-        ephemeral: true,
+        flags: MessageFlags.Ephemeral,
       });
     }
   },

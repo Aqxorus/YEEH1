@@ -6,6 +6,7 @@ const {
   Client,
   EmbedBuilder,
   InteractionContextType,
+  MessageFlags,
 } = require('discord.js');
 
 const { loadCommands } = require('../../Handlers/commandHandler');
@@ -47,7 +48,7 @@ module.exports = {
                 .setDescription('Reloaded Events.'),
             ],
             // content: 'Reloaded Events.', - standard message replies
-            ephemeral: true,
+            flags: MessageFlags.Ephemeral,
           });
         }
         break;
@@ -61,7 +62,7 @@ module.exports = {
                 .setDescription('Reloaded Commands.'),
             ],
             // content: 'Reloaded Commands.', - standard message replies
-            ephemeral: true,
+            flags: MessageFlags.Ephemeral,
           });
         }
         break;

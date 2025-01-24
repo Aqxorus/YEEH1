@@ -6,6 +6,7 @@ const {
   EmbedBuilder,
   Client,
   InteractionContextType,
+  MessageFlags,
 } = require('discord.js');
 
 module.exports = {
@@ -52,7 +53,7 @@ module.exports = {
             'Because member has most likely left the server'
           ),
         ],
-        ephemeral: true,
+        flags: MessageFlags.Ephemeral,
       });
 
     if (!target.manageable || !target.moderatable)
@@ -66,7 +67,7 @@ module.exports = {
     if (errorsArray.length)
       return interaction.reply({
         embeds: [errorsEmbed.setDescription(errorsArray.join('\n'))],
-        ephemeral: true,
+        flags: MessageFlags.Ephemeral,
       });
 
     const successEmbed = new EmbedBuilder()

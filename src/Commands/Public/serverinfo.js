@@ -203,7 +203,6 @@ module.exports = {
             { name: 'Banner', value: guild.bannerURL() ? '** **' : 'None' }
           ),
       ],
-      ephemeral: false,
     });
   },
 };

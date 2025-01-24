@@ -17,21 +17,20 @@ module.exports = {
    * @param {Client} client
    */
   async execute(interaction, client) {
-    const message = await interaction.deferReply({
-      fetchReply: true,
-    });
+    await interaction.deferReply();
+
+    const reply = await interaction.fetchReply();
+
+    const ping = reply.createdTimestamp - interaction.createdTimestamp;
 
     const newEmbed = new EmbedBuilder()
       .setColor('Blue')
       .setDescription(
-        `API Latency: ${client.ws.ping}ms\nClient Ping: ${
-          message.createdTimestamp - interaction.createdTimestamp
-        }ms`
+        `API Latency: ${client.ws.ping}ms\nClient Ping: ${ping}ms`
       );
 
     await interaction.editReply({
       embeds: [newEmbed],
-      ephemeral: false,
     });
   },
 };

@@ -4,7 +4,7 @@ const {
   SlashCommandBuilder,
   PermissionFlagsBits,
   Client,
-  EmbedBuilder,
+  MessageFlags,
   InteractionContextType,
 } = require('discord.js');
 
@@ -40,12 +40,12 @@ module.exports = {
         try {
           return interaction.reply({
             content: `Guilds:\n\`${guild}\``,
-            ephemeral: true,
+            flags: MessageFlags.Ephemeral,
           });
         } catch {
           return interaction.reply({
             content: `check console for list of guilds`,
-            ephemeral: true,
+            flags: MessageFlags.Ephemeral,
           });
         }
       }
@@ -54,8 +54,8 @@ module.exports = {
 
       if (!guild) {
         return interaction.reply({
-          content: `\`${id}\` is not a valid guild id`,
-          ephemeral: true,
+          content: `\`${id}\` is not a valid guild id.`,
+          flags: MessageFlags.Ephemeral,
         });
       }
 
@@ -66,11 +66,11 @@ module.exports = {
           console.log(err);
         });
       return interaction.reply({
-        content: `Left guild \`${id}\``,
-        ephemeral: true,
+        content: `Left guild \`${id}\`.`,
+        flags: MessageFlags.Ephemeral,
       });
     } catch (error) {
-      console.log(`there was an error trying to leave guild ${id}`, error);
+      console.log(`There was an error trying to leave guild ${id}`, error);
     }
   },
 };

@@ -1,5 +1,9 @@
 'use strict';
-const { ButtonInteraction, EmbedBuilder } = require('discord.js');
+const {
+  ButtonInteraction,
+  EmbedBuilderm,
+  MessageFlags,
+} = require('discord.js');
 
 module.exports = {
   name: 'interactionCreate',
@@ -37,7 +41,7 @@ module.exports = {
     if (errorArray.length)
       return interaction.reply({
         embeds: [Embed.setDescription(errorArray.join('\n'))],
-        ephemeral: true,
+        flags: MessageFlags.Ephemeral,
       });
 
     switch (splitArray[1]) {

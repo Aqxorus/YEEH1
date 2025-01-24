@@ -6,6 +6,7 @@ const {
   EmbedBuilder,
   Client,
   InteractionContextType,
+  MessageFlags,
 } = require('discord.js');
 
 module.exports = {
@@ -41,7 +42,7 @@ module.exports = {
     if (isNaN(target))
       return interaction.reply({
         content: `A user ID must only have numbers`,
-        ephemeral: true,
+        flags: MessageFlags.Ephemeral,
       });
 
     const fetchTargetBan = await guild.bans.fetch(target).catch(() => {
@@ -59,7 +60,7 @@ module.exports = {
     if (error)
       return interaction.reply({
         content: `${target} was not found in the ban list`,
-        ephemeral: true,
+        flags: MessageFlags.Ephemeral,
       });
 
     await interaction.reply({

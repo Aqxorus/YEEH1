@@ -6,6 +6,7 @@ const {
   EmbedBuilder,
   Client,
   InteractionContextType,
+  MessageFlags,
 } = require('discord.js');
 const Database = require('../../Models/Infractions');
 const ms = require('ms');
@@ -63,7 +64,7 @@ module.exports = {
         embeds: [
           errorsEmbed.setDescription('Member has most likely left the server'),
         ],
-        ephemeral: true,
+        flags: MessageFlags.Ephemeral,
       });
 
     if (!ms(duration) || ms(duration) > ms('28d'))
@@ -82,7 +83,7 @@ module.exports = {
     if (errorsArray.length)
       return interaction.reply({
         embeds: [errorsEmbed.setDescription(errorsArray.join('\n'))],
-        ephemeral: true,
+        flags: MessageFlags.Ephemeral,
       });
 
     let timeError = false;
@@ -95,7 +96,6 @@ module.exports = {
             'Could not timeout user due to an uncommon error. Cannot take negative values'
           ),
         ],
-        ephemeral: false,
       });
 
     const newInfractionsObject = {

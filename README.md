@@ -39,7 +39,7 @@ if (command.developer && interaction.user.id !== '598624275083034654')
         .setColor('Red')
         .setDescription('This command is only available to the developer.'),
     ],
-    ephemeral: true,
+    flags: MessageFlags.Ephemeral,
   });
 ```
 
