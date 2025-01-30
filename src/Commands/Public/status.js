@@ -42,7 +42,7 @@ module.exports = {
     await interaction.editReply({
       embeds: [
         new EmbedBuilder()
-          .setColor('Random')
+          .setColor('White')
           .setTitle(`${client.user.username}'s Status`)
           .setThumbnail(client.user.displayAvatarURL({ size: 1024 }))
           .addFields(
@@ -59,7 +59,7 @@ module.exports = {
                   client.user.createdTimestamp / 1000
                 )}:R>`,
                 `👑 **Owner** <@598624275083034654>`,
-                `<:verifiedBotLogo:1104361951515127850> **Verified** ${
+                `<:verifiedBotLogo:1334325679008776222> **Verified** ${
                   client.user.flags & UserFlags.VerifiedBot ? 'Yes' : 'No'
                 }`,
                 `🏷 **Tags** ${

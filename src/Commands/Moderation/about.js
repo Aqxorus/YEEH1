@@ -9,8 +9,8 @@ const {
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName('ping')
-    .setDescription(`Replies with the API's Latency + Client Ping.`)
+    .setName('about')
+    .setDescription(`Information about the bot!`)
     .setContexts(InteractionContextType.Guild),
   /**
    *
@@ -20,15 +20,20 @@ module.exports = {
   async execute(interaction, client) {
     await interaction.deferReply();
 
-    const reply = await interaction.fetchReply();
-
-    const ping = reply.createdTimestamp - interaction.createdTimestamp;
-
     const newEmbed = new EmbedBuilder()
-      .setColor('Blue')
+      .setAuthor({
+        name: 'YEEH1',
+        iconURL: client.user.displayAvatarURL({ size: 1024 }),
+      })
+      .setTitle('About YEEH1')
+      .setColor('White')
       .setDescription(
-        `API Latency: ${client.ws.ping}ms\nClient Ping: ${ping}ms`
-      );
+        `YEEH1 is a multi-purpose discord bot created by <@598624275083034654>.`
+      )
+      .addFields({
+        name: 'Information',
+        value: '>>> **Author Website:** [View Website](https://aqxorus.me)',
+      });
 
     await interaction.editReply({
       embeds: [newEmbed],

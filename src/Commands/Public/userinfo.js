@@ -7,7 +7,7 @@ const {
   AttachmentBuilder,
   InteractionContextType,
 } = require('discord.js');
-const { profileImage } = require('discord-arts');
+const { Profile } = require('discord-arts');
 
 module.exports = {
   cooldown: 10,
@@ -51,7 +51,7 @@ module.exports = {
 
     const fetchedMembers = await interaction.guild.members.fetch();
 
-    const profileBuffer = await profileImage(target.id);
+    const profileBuffer = await Profile(target.id);
     const imageAttachment = new AttachmentBuilder(profileBuffer, {
       name: 'profile.png',
     });

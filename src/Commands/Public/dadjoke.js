@@ -2,6 +2,7 @@ const {
   SlashCommandBuilder,
   ChatInputCommandInteraction,
   EmbedBuilder,
+  InteractionContextType,
 } = require('discord.js');
 const axios = require('axios');
 
@@ -10,7 +11,7 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName('dadjokes')
     .setDescription('Random dad jokes from icanhazdadjoke.com')
-    .setDMPermission(false),
+    .setContexts(InteractionContextType.Guild),
   /**
    *
    * @param {ChatInputCommandInteraction} interaction

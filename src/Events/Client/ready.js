@@ -22,6 +22,10 @@ module.exports = {
             status: 'online',
           },
           {
+            type: ActivityType.Custom,
+            text: '⚡ /about | aqxorus.me',
+          },
+          {
             type: ActivityType.Listening,
             text: `${client.commands.size} commands`,
             status: 'online',
@@ -41,7 +45,7 @@ module.exports = {
         });
       };
 
-      setInterval(client.pickPresence, 1000 * 10);
+      setInterval(client.pickPresence, 1000 * 7);
     })().catch(console.error);
 
     const mongoStatus = [
@@ -53,7 +57,7 @@ module.exports = {
 
     try {
       mongoose.set('strictQuery', false);
-      mongoose.set('bufferTimeoutMS', 500);
+      // mongoose.set('bufferTimeoutMS', 500);
       await mongoose.connect(client.config.mongoUri).then(() => {
         setTimeout(() => {
           console.info(
