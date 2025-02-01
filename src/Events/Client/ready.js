@@ -12,42 +12,6 @@ module.exports = {
    * @param {Client} client
    */
   async execute(client) {
-    // Status changer
-    (async function () {
-      client.pickPresence = async () => {
-        const options = [
-          {
-            type: ActivityType.Watching,
-            text: `over ${client.guilds.cache.size} servers`,
-            status: 'online',
-          },
-          {
-            type: ActivityType.Custom,
-            text: '⚡ /about | aqxorus.me',
-          },
-          {
-            type: ActivityType.Listening,
-            text: `${client.commands.size} commands`,
-            status: 'online',
-          },
-        ];
-
-        const option = Math.floor(Math.random() * options.length);
-
-        client.user.setPresence({
-          activities: [
-            {
-              name: options[option].text,
-              type: options[option].type,
-            },
-          ],
-          status: options[option].status,
-        });
-      };
-
-      setInterval(client.pickPresence, 1000 * 7);
-    })().catch(console.error);
-
     const mongoStatus = [
       'disconnected',
       'connected',
@@ -74,5 +38,49 @@ module.exports = {
     }
 
     await loadCommands(client);
+
+    // Status changer
+    try {
+      const options = [
+        {
+          type: ActivityType.Watching,
+          text: `over ${client.guilds.cache.size} servers`,
+          status: 'online',
+        },
+        {
+          type: ActivityType.Custom,
+          text: '⚡ /about | aqxorus.me',
+        },
+        {
+          type: ActivityType.Listening,
+          text: `${client.commands.size} commands`,
+          status: 'online',
+        },
+      ];
+
+      let counter = 0;
+
+      client.pickPresence = async () => {
+        client.user.setPresence({
+          status: options[counter].status,
+          activities: [
+            {
+              name: options[counter].text,
+              type: options[counter].type,
+            },
+          ],
+        });
+
+        if (++counter >= options.length) {
+          counter = 0;
+        }
+
+        setTimeout(client.pickPresence, 1000 * 20);
+      };
+
+      client.pickPresence();
+    } catch (error) {
+      console.error(error);
+    }
   },
 };
