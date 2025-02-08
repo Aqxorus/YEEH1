@@ -9,6 +9,7 @@ const {
   TextInputBuilder,
   TextInputStyle,
   InteractionContextType,
+  MessageFlags,
 } = require('discord.js');
 
 module.exports = {
@@ -47,13 +48,18 @@ module.exports = {
     try {
       interaction
         .awaitModalSubmit({ filter, time: 30_000 })
-        .then((modalInteraction) => {
+        .then(async (modalInteraction) => {
           const sayInput =
             modalInteraction.fields.getTextInputValue('sayInput');
 
-          modalInteraction.deferReply();
-          modalInteraction.deleteReply();
-          modalInteraction.channel.send(sayInput);
+          await modalInteraction.deferReply({
+            flags: MessageFlags.Ephemeral,
+          });
+          await modalInteraction.editReply({
+            content: 'Sending...',
+            flags: MessageFlags.Ephemeral,
+          });
+          await modalInteraction.channel.send(sayInput);
         });
     } catch (error) {
       console.log(`Error: ${err}`);
